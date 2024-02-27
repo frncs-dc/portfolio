@@ -15,7 +15,7 @@ function Others() {
 
             <Row className='ms-3 mt-3 w-auto' data-aos="fade-up">
                 <Col className='ms-2'>
-                    <Row className='fs-4 text-light mb-2 '> <a className='project-link' href=''>
+                    <Row className='fs-4 text-light mb-2 '> <a className='project-link' href='https://github.com/Milkz03/CCINFOM-HomeownersDatabase'>
                         Homeowners Association DB Application</a>
                     </Row>
                     <Row className='ps-3'>
@@ -29,6 +29,25 @@ function Others() {
                         Developed the frontend and backend of a database management application which enhances the
                         management of essential data, providing personnel with efficient and user-friendly tools for information
                         organization and retrieval along with support for CRUD operations.
+                        </Col>
+                    </Row>
+                </Col>
+            </Row>
+
+            <Row className='ms-3 mt-3 w-auto' data-aos="fade-up">
+                <Col className='ms-2'>
+                    <Row className='fs-4 text-light mb-2 '> <a className='project-link' href='https://github.com/CarlMatthewVerano/CCPROG3-Farming-Simulator'>
+                        Farming Simulator</a>
+                    </Row>
+                    <Row className='ps-3'>
+                        <Col md='auto'className=' rounded-pill me-2 text-dark'>Java</Col>
+                        <Col md='auto'className=' rounded-pill me-2 text-dark'>OOP</Col>
+
+                    </Row>
+                    <Row className='text-light'>
+                        <Col className='col-9 mt-2'>
+                        A Java-based farming simulator which uses Object Oriented Programming concepts. Implements basic
+                        farming features like: planting, watering, selling and player level experience.
                         </Col>
                     </Row>
                 </Col>
