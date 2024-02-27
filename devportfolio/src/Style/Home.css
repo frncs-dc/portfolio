@@ -1,0 +1,79 @@
+:root {
+    --text-dark: #011638;
+    --text-light: #DFF8EB;
+}
+
+.picture{
+    height: 50vh;
+    width: 50vh;
+}
+
+.section-1 {
+    height: 100vh;
+    background-color: #CDCDCD;
+}
+
+.section-2 {
+    height: 100vh;
+    background-color: #364156;
+}
+
+.text-dark {
+    color: var(--text-dark)!important;
+    background-color: var(--text-light)!important;
+}
+
+.project-link, .text-light {
+    color: var(--text-light)!important;
+    text-decoration: none!important;
+}
+
+.home-section {
+    height: 100vh;
+    background-color: #011638;
+    color: #DFF8EB;
+}
+
+.mini-navbar {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px; /* Adjust padding as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a box shadow */
+}
+
+.check-placement{
+    border: 1px red solid;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.no-padding{
+    padding: 0;
+}
+
+.selected-btn, .unselected-btn:hover {
+    color: #011638!important;
+    background-color: #DFF8EB!important;
+    border: 0px!important;
+}
+
+.unselected-btn, selected-btn:hover {
+    background-color: #364156!important;
+    color: #DFF8EB!important;
+    border: 1px #011638 solid!important;
+}
+
+.socmed-btn{
+    background-color: #214E34!important;
+    color: #DFF8EB!important;
+    border: 0px!important;
+}
+
+.socmed-btn:hover{
+    color: #214E34!important;
+    background-color: #DFF8EB!important;
+    border: 0px!important;
+}
