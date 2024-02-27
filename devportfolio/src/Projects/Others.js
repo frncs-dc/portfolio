@@ -46,8 +46,9 @@ function Others() {
                     </Row>
                     <Row className='text-light'>
                         <Col className='col-9 mt-2'>
-                        A Java-based farming simulator which uses Object Oriented Programming concepts. Implements basic
-                        farming features like: planting, watering, selling and player level experience.
+                        Used OOP concepts to develop a game which stimulates basic farming activities that includes planting,
+                        harvesting, watering, and selling of different seeds.
+                        Developed a GUI which makes the interface visually pleasing to the player.
                         </Col>
                     </Row>
                 </Col>
