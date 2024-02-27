@@ -1,6 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "portfolio",
+  "name": "devportfolio",
   "version": "0.1.0",
   "private": true,
   "homepage": "https://frncs-dc.github.io/portfolio/",
@@ -45,9 +44,5 @@
   },
   "devDependencies": {
     "gh-pages": "^6.1.1"
-=======
-  "dependencies": {
-    "bootstrap": "^5.3.1"
->>>>>>> parent of f58bda1 (feat: created ver 1.0 portfolio)
   }
 }

@@ -15,13 +15,13 @@ function Frontend() {
                 <Col className='col-2 p-2 '>
                     <Carousel>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Motorcycle\Administrator Control Center Page.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Motorcycle\Administrator Control Center Page.png'></Image>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Motorcycle\Check Out - Delete Items.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Motorcycle\Check Out - Delete Items.png'></Image>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Motorcycle\Sales Page - Incoming Payments.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Motorcycle\Sales Page - Incoming Payments.png'></Image>
                         </Carousel.Item>
                     </Carousel>
                 </Col>
@@ -46,13 +46,13 @@ function Frontend() {
                 <Col className='col-2 p-2 '>
                     <Carousel>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Spotfinder\Home Page - with Login.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Spotfinder\Home Page - with Login.png'></Image>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Spotfinder\Host-Form Page 4.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Spotfinder\Host-Form Page 4.png'></Image>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\Spotfinder\Parking Slot Host.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\Spotfinder\Parking Slot Host.png'></Image>
                         </Carousel.Item>
                     </Carousel>
                 </Col>
@@ -76,10 +76,10 @@ function Frontend() {
                 <Col className='col-2 p-2 '>
                     <Carousel>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\TellTail Tasks\TellTail Tasks - 1.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\TellTail Tasks\TellTail Tasks - 1.png'></Image>
                         </Carousel.Item>
                         <Carousel.Item>
-                            <Image rounded fluid src='\Projects\TellTail Tasks\TellTail Tasks - 2.png'></Image>
+                            <Image rounded fluid src='portfolio\Projects\TellTail Tasks\TellTail Tasks - 2.png'></Image>
                         </Carousel.Item>
                     </Carousel>
                 </Col>

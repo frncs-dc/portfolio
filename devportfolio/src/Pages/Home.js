@@ -48,7 +48,7 @@ function Home(){
                 <Row className="d-flex align-items-top justify-content-center "
                         data-aos="fade-up">
                     <Col md="auto" className='d-flex'>
-                        <img className='rounded-4 picture ms-5' src='./Portfolio Pic/Picture.png'></img>
+                        <img className='rounded-4 picture ms-5' src='portfolio\Portfolio Pic\Picture.png'></img>
                     </Col>
                     
                     <Col className='me-5 d-flex flex-column'>
