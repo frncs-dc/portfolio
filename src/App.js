@@ -16,15 +16,7 @@ function App() {
         </Col> */}
         
         <Col>
-          <BrowserRouter>
-            <Routes>
-              <Route 
-                path="/"
-                element={<Home />}
-              />
-            </Routes>
-          </BrowserRouter>
-          
+          <Home></Home>
         </Col>
 
       </Row>
