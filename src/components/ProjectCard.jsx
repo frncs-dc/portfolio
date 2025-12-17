@@ -7,6 +7,7 @@ import {
     CardContent,
     CardFooter,
 } from "@/components/ui/card";
+import ProjImgCarousel from "./ProjImgCarousel";
 
 export default function ProjectCard({ project }) {
     const {
@@ -21,15 +22,11 @@ export default function ProjectCard({ project }) {
     } = project;
 
     return (
-        <Card className="w-full hover:shadow-lg transition-shadow pt-0 flex flex-col max-h-[600px]">
+        <Card className="w-full hover:shadow-lg transition-shadow pt-0 flex flex-col max-h-[600px]
+        ">
             {images && images.length > 0 && (
-                <div className="relative w-full h-48 overflow-hidden rounded-t-xl -mt-6 flex-shrink-0">
-                    <Image
-                        src={images[0]}
-                        alt={title}
-                        fill
-                        className="object-cover border-2 border-blue-500"
-                    />
+                <div className="relative w-full h-48 overflow-hidden rounded-t-xl flex-shrink-0">
+                    <ProjImgCarousel imagesProp={images} />
                 </div>
             )}
             <CardHeader className="flex-shrink-0">

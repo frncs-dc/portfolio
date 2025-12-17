@@ -2,7 +2,7 @@ export default function ExperienceSection() {
     return (
         <section
             className="relative z-10 h-screen
-            flex flex-col justify-center items-center gap-4 border"
+            flex flex-col justify-center items-center gap-4"
         >
             <div className="text-4xl text-left font-bold w-full">
                 Experience
