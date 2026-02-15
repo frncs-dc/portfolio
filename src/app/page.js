@@ -2,11 +2,14 @@ import Image from "next/image";
 import HeroSection from "@/components/heroSection";
 import ExperienceSection from "@/components/experienceSection";
 import ProjectSection from "@/components/projectSection";
+import Statistics from "@/components/statistics";
+import AboutMe from "@/components/aboutme";
+import CTASection from "@/components/ctaSection";
 
 export default function Home() {
     return (
         <div>
-            <div className="min-h-screen w-full bg-white relative">
+            <div className="min-h-screen w-full bg-white relative p-20">
                 {/* Pink Glow Background */}
                 <div
                     className="absolute inset-0 z-0 pointer-events-none"
@@ -20,6 +23,9 @@ export default function Home() {
                 {/* Your Content/Components */}
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
+                    <Statistics />
+                    <AboutMe />
+                    <CTASection />
                     <ExperienceSection />
                     <ProjectSection />
                 </div>

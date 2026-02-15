@@ -3,6 +3,7 @@
 import SpotlightCard from "@/components/SpotlightCard";
 import { Button } from "@/components/ui/button";
 import ShinyText from "@/components/ShinyText";
+import { ArrowRightIcon } from "lucide-react";
 
 export default function HeroSection() {
     const handleProjectClick = (projectNumber) => {
@@ -16,22 +17,18 @@ export default function HeroSection() {
 
     return (
         <section
-            className="relative z-10 text-left h-screen
-            flex flex-row justify-center items-center gap-10"
+            className="relative z-10 text-left mt-10
+            min-h-screen
+            flex flex-row gap-10"
         >
             <div className="flex-1 flex flex-col gap-4">
-                <div className="text-foreground text-lg font-bold">
-                    Hi I'm Frances :D !
+                <div className="text-foreground text-4xl font-bold">
+                    I’m Frances, a developer and designer fueled by the fusion
+                    of art and technology.
                 </div>
-                <ShinyText
-                    text="I am a developer and a designer."
-                    disabled={false}
-                    speed={5}
-                    className="text-foreground text-4xl font-extrabold"
-                />
                 <div className="text-foreground text-xl font-bold">
-                    this is where creativity meets coding to craft dynamic
-                    full-stack solutions.
+                    I don't just build websites; I craft dynamic full-stack
+                    solutions that prioritize both form and function.
                 </div>
 
                 {/* important buttons here */}
@@ -47,6 +44,19 @@ export default function HeroSection() {
                         className="transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105"
                     >
                         LinkedIn
+                        <ArrowRightIcon className="w-4 h-4" />
+                    </Button>
+                    <Button
+                        variant="default"
+                        onClick={() =>
+                            window.open(
+                                "mailto:delacruzfrancesjulianne@gmail.com",
+                                "_blank",
+                            )
+                        }
+                        className="transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105"
+                    >
+                        Contact Me
                     </Button>
                     <Button
                         variant="default"
@@ -59,7 +69,7 @@ export default function HeroSection() {
             </div>
 
             {/* Project Previews */}
-            <div className="flex-1 grid grid-flow-col grid-rows-2 gap-4">
+            <div className="flex-1 grid grid-cols-2 gap-4 items-start self-start">
                 <SpotlightCard
                     className="custom-spotlight-card aspect-square"
                     spotlightColor="rgba(236, 72, 153, 0.25)"
@@ -75,11 +85,18 @@ export default function HeroSection() {
                     Project 2
                 </SpotlightCard>
                 <SpotlightCard
-                    className="custom-spotlight-card row-span-2 aspect-1/2"
+                    className="custom-spotlight-card aspect-square"
                     spotlightColor="rgba(236, 72, 153, 0.25)"
                     onClick={() => handleProjectClick(3)}
                 >
                     Project 3
+                </SpotlightCard>
+                <SpotlightCard
+                    className="custom-spotlight-card aspect-square"
+                    spotlightColor="rgba(236, 72, 153, 0.25)"
+                    onClick={() => handleProjectClick(3)}
+                >
+                    Project 4
                 </SpotlightCard>
             </div>
         </section>
