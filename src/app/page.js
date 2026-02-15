@@ -6,6 +6,8 @@ import Statistics from "@/components/statistics";
 import AboutMe from "@/components/aboutme";
 import CTASection from "@/components/ctaSection";
 import ProjectsSection from "@/components/projectsSection";
+import TechStack from "@/components/techStack";
+import ContactMe from "@/components/contactMe";
 
 export default function Home() {
     return (
@@ -29,6 +31,8 @@ export default function Home() {
                     <CTASection />
                     <ExperienceSection />
                     <ProjectsSection />
+                    <TechStack />
+                    <ContactMe />
                     {/* <ProjectSection /> */}
                 </div>
             </div>

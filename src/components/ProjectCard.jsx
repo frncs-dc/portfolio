@@ -8,6 +8,7 @@ import {
     CardFooter,
 } from "@/components/ui/card";
 import ProjImgCarousel from "./ProjImgCarousel";
+import { getTechnologyName } from "@/data/technologies";
 
 export default function ProjectCard({ project }) {
     const {
@@ -45,12 +46,12 @@ export default function ProjectCard({ project }) {
                 )}
                 {technologies && technologies.length > 0 && (
                     <div className="flex flex-wrap gap-2">
-                        {technologies.map((tech, index) => (
+                        {technologies.map((techId, index) => (
                             <span
                                 key={index}
                                 className="px-2 py-1 text-xs bg-gray-100 dark:bg-gray-800 rounded-md"
                             >
-                                {tech}
+                                {getTechnologyName(techId)}
                             </span>
                         ))}
                     </div>

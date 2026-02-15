@@ -4,6 +4,8 @@ import { useState, useMemo, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
+import { technologies as technologiesList, getTechnologyName } from "@/data/technologies";
+
 const ALL = "All";
 const PROJECTS_DISPLAY_LIMIT = 3;
 
@@ -16,11 +18,12 @@ export default function ProjectsSection() {
         () => [...new Set(projects.map((p) => p.category))].sort(),
         [],
     );
-    const technologies = useMemo(
-        () =>
-            [...new Set(projects.flatMap((p) => p.technologies || []))].sort(),
-        [],
-    );
+    const technologies = useMemo(() => {
+        const usedIds = new Set(projects.flatMap((p) => p.technologies || []));
+        return technologiesList
+            .filter((t) => usedIds.has(t.id))
+            .map((t) => t.id);
+    }, []);
 
     const filteredProjects = useMemo(() => {
         return projects.filter((project) => {
@@ -92,22 +95,22 @@ export default function ProjectsSection() {
                         >
                             {ALL}
                         </Button>
-                        {technologies.map((tech) => (
+                        {technologies.map((techId) => (
                             <Button
-                                key={tech}
+                                key={techId}
                                 variant={
-                                    selectedTechnology === tech
+                                    selectedTechnology === techId
                                         ? "default"
                                         : "outline"
                                 }
                                 size="sm"
                                 onClick={() =>
                                     setSelectedTechnology(
-                                        selectedTechnology === tech ? null : tech,
+                                        selectedTechnology === techId ? null : techId,
                                     )
                                 }
                             >
-                                {tech}
+                                {getTechnologyName(techId)}
                             </Button>
                         ))}
                     </div>
