@@ -5,6 +5,7 @@ import ProjectSection from "@/components/projectSection";
 import Statistics from "@/components/statistics";
 import AboutMe from "@/components/aboutme";
 import CTASection from "@/components/ctaSection";
+import ProjectsSection from "@/components/projectsSection";
 
 export default function Home() {
     return (
@@ -27,7 +28,8 @@ export default function Home() {
                     <AboutMe />
                     <CTASection />
                     <ExperienceSection />
-                    <ProjectSection />
+                    <ProjectsSection />
+                    {/* <ProjectSection /> */}
                 </div>
             </div>
         </div>

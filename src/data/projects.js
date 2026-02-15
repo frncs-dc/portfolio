@@ -80,4 +80,29 @@ export const projects = [
         githubUrl: null,
         liveUrl: null,
     },
+    {
+        id: 6,
+        title: "PisoCAKE Financial Management PWA",
+        description: "UI/UX R&D of a routine-aligned financial goal PWA",
+        longDescription:
+            "Designed and developed a Progressive Web Application (PWA) to improve financial goal achievement by integrating routine-aligned transaction logging. Conducted a mixed-methods needfinding study involving a survey and semi-structured interviews to identify behavioral themes such as discipline and convenience. Executed eight iterations of prototyping and usability testing to refine user experience. Evaluated the final system through a two-week field study using the NASA Task Load Index (TLX) to assess cognitive workload and the Treatment Self-Regulation Questionnaire (TSRQ) to analyze user motivation.",
+        images: [],
+        technologies: ["Figma", "TypeScript", "Supabase", "Thematic Analysis"],
+        category: "UI/UX Research & Development",
+        githubUrl: null,
+        liveUrl: null,
+    },
+    {
+        id: 7,
+        title: "Headless CMS and Lead Management Dashboard",
+        description: "Custom CMS with lead oversight and reporting",
+        longDescription:
+            "Designed and developed a custom Content Management System (CMS) prototype with a specialized dashboard for managing and overseeing leads. Engineered a reporting interface that aggregates data into visual summaries, enabling administrators to track lead status and performance metrics effectively. Utilized Next.js for server-side rendering and SQLite for efficient local data persistence.",
+        images: [],
+        technologies: ["Next.js", "SQLite", "Tailwind CSS"],
+        category: "UI/UX Prototyping & Development",
+        usedAi: true,
+        githubUrl: null,
+        liveUrl: null,
+    },
 ];
