@@ -21,10 +21,9 @@ export default function HeroSection() {
             min-h-screen
             flex flex-row gap-10"
         >
-            <div className="flex-1 flex flex-col gap-4">
+            <div className="flex-1 flex flex-col gap-4 h-full">
                 <div className="text-foreground text-4xl font-bold">
-                    I’m Frances, a developer and designer fueled by the fusion
-                    of art and technology.
+                    I’m Frances, a developer and designer
                 </div>
                 <div className="text-foreground text-xl font-bold">
                     I don't just build websites; I craft dynamic full-stack
