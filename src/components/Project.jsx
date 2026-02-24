@@ -1,4 +1,5 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 export default function Project({ project }) {
@@ -20,18 +21,21 @@ export default function Project({ project }) {
                 </div>
             )}
 
-            <CardHeader className="pb-2">
-                <CardTitle className="text-xl font-semibold tracking-tight">
-                    {title}
-                </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-0 pb-4">
-                {description && (
-                    <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                        {description}
-                    </p>
-                )}
-            </CardContent>
+            <div className="flex flex-col py-4">
+                <CardHeader className="pb-2">
+                    <CardTitle className="text-xl font-semibold tracking-tight">
+                        {title}
+                    </CardTitle>
+                </CardHeader>
+                <CardContent className="pt-0 pb-4">
+                    {description && (
+                        <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                            {description}
+                        </p>
+                    )}
+                </CardContent>
+                <Button>View Project</Button>
+            </div>
         </Card>
     );
 }
