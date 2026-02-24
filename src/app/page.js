@@ -1,7 +1,6 @@
 import Image from "next/image";
 import HeroSection from "@/components/heroSection";
 import ExperienceSection from "@/components/experienceSection";
-import ProjectSection from "@/components/projectSection";
 import Statistics from "@/components/statistics";
 import AboutMe from "@/components/aboutme";
 import CTASection from "@/components/ctaSection";

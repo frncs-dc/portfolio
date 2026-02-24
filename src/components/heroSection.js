@@ -18,13 +18,9 @@ export default function HeroSection() {
     return (
         <section
             className="relative z-10 text-left
-            flex flex-row gap-10 pt-20 items-stretch
-            border-2 border-green-500"
+            flex flex-row gap-10 pt-20 items-stretch"
         >
-            <div
-                className="flex-1 flex flex-col justify-between 
-            border-2 border-blue-500 items-stretch"
-            >
+            <div className="flex-1 flex flex-col justify-between ">
                 <div className="flex flex-col gap-4">
                     <div className="text-foreground text-4xl font-bold">
                         I’m Frances, a developer and designer
@@ -73,10 +69,7 @@ export default function HeroSection() {
             </div>
 
             {/* Project Previews */}
-            <div
-                className="flex-1 grid grid-cols-2 gap-4 items-start self-stretch
-            border-2 border-red-500"
-            >
+            <div className="flex-1 grid grid-cols-2 gap-4 items-start self-stretch">
                 <SpotlightCard
                     className="custom-spotlight-card aspect-square"
                     spotlightColor="rgba(236, 72, 153, 0.25)"
