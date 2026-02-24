@@ -60,29 +60,13 @@ export const projects = [
             "/Projects/Food Storage/Desktop - 2.png",
             "/Projects/Food Storage/Desktop - 3.png",
         ],
-        technologies: ["react", "javascript", "css"],
+        technologies: ["react", "javascript", "css", "thematic-analysis"],
         category: "Web Application",
         githubUrl: null,
         liveUrl: null,
     },
     {
         id: 5,
-        title: "Food Storage",
-        description: "Food storage management system",
-        longDescription:
-            "An application designed to help users manage and track their food storage inventory, ensuring efficient organization and reducing waste.",
-        images: [
-            "/Projects/Food Storage/Desktop - 1.png",
-            "/Projects/Food Storage/Desktop - 2.png",
-            "/Projects/Food Storage/Desktop - 3.png",
-        ],
-        technologies: ["react", "javascript", "css"],
-        category: "Web Application",
-        githubUrl: null,
-        liveUrl: null,
-    },
-    {
-        id: 6,
         title: "PisoCAKE Financial Management PWA",
         description: "UI/UX R&D of a routine-aligned financial goal PWA",
         longDescription:
@@ -94,7 +78,7 @@ export const projects = [
         liveUrl: null,
     },
     {
-        id: 7,
+        id: 6,
         title: "Headless CMS and Lead Management Dashboard",
         description: "Custom CMS with lead oversight and reporting",
         longDescription:

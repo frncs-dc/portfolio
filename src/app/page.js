@@ -1,7 +1,6 @@
 import Image from "next/image";
 import HeroSection from "@/components/heroSection";
 import ExperienceSection from "@/components/experienceSection";
-import Statistics from "@/components/statistics";
 import AboutMe from "@/components/aboutme";
 import CTASection from "@/components/ctaSection";
 import ProjectsSection from "@/components/projectsSection";
@@ -28,13 +27,11 @@ export default function Home() {
                     <ProjectsSection />
                 </div>
 
-                <Statistics />
-
                 <div className="relative z-10 w-3/4 mx-auto">
                     <AboutMe />
                 </div>
 
-                <CTASection />
+                {/* <CTASection /> */}
                 <div className="relative z-10 w-3/4 mx-auto">
                     <ExperienceSection />
 

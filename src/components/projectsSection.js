@@ -4,7 +4,11 @@ import { useState, useMemo, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
-import { technologies as technologiesList, getTechnologyName } from "@/data/technologies";
+import Project from "@/components/Project";
+import {
+    technologies as technologiesList,
+    getTechnologyName,
+} from "@/data/technologies";
 
 const ALL = "All";
 const PROJECTS_DISPLAY_LIMIT = 3;
@@ -31,7 +35,8 @@ export default function ProjectsSection() {
                 !selectedCategory || project.category === selectedCategory;
             const matchTechnology =
                 !selectedTechnology ||
-                (project.technologies && project.technologies.includes(selectedTechnology));
+                (project.technologies &&
+                    project.technologies.includes(selectedTechnology));
             return matchCategory && matchTechnology;
         });
     }, [selectedCategory, selectedTechnology]);
@@ -46,10 +51,10 @@ export default function ProjectsSection() {
     const hasMore = filteredProjects.length > PROJECTS_DISPLAY_LIMIT;
 
     return (
-        <section className="relative z-10 min-h-screen flex flex-col justify-center items-center py-20">
+        <section className="relative z-10 min-h-screen flex flex-col py-12">
             <h1 className="text-4xl font-bold">Projects</h1>
 
-            <div className="w-full max-w-7xl px-4 flex flex-col gap-6">
+            <div className="w-full max-w-7xl flex flex-col gap-6 mt-12">
                 {/* Category filter */}
                 <div className="flex flex-col gap-2">
                     <span className="text-sm font-medium text-muted-foreground">
@@ -57,7 +62,11 @@ export default function ProjectsSection() {
                     </span>
                     <div className="flex flex-wrap gap-2">
                         <Button
-                            variant={selectedCategory === null ? "default" : "outline"}
+                            variant={
+                                selectedCategory === null
+                                    ? "default"
+                                    : "outline"
+                            }
                             size="sm"
                             onClick={() => setSelectedCategory(null)}
                         >
@@ -67,11 +76,15 @@ export default function ProjectsSection() {
                             <Button
                                 key={cat}
                                 variant={
-                                    selectedCategory === cat ? "default" : "outline"
+                                    selectedCategory === cat
+                                        ? "default"
+                                        : "outline"
                                 }
                                 size="sm"
                                 onClick={() =>
-                                    setSelectedCategory(selectedCategory === cat ? null : cat)
+                                    setSelectedCategory(
+                                        selectedCategory === cat ? null : cat,
+                                    )
                                 }
                             >
                                 {cat}
@@ -88,7 +101,9 @@ export default function ProjectsSection() {
                     <div className="flex flex-wrap gap-2">
                         <Button
                             variant={
-                                selectedTechnology === null ? "default" : "outline"
+                                selectedTechnology === null
+                                    ? "default"
+                                    : "outline"
                             }
                             size="sm"
                             onClick={() => setSelectedTechnology(null)}
@@ -106,7 +121,9 @@ export default function ProjectsSection() {
                                 size="sm"
                                 onClick={() =>
                                     setSelectedTechnology(
-                                        selectedTechnology === techId ? null : techId,
+                                        selectedTechnology === techId
+                                            ? null
+                                            : techId,
                                     )
                                 }
                             >
@@ -116,34 +133,27 @@ export default function ProjectsSection() {
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch">
                     {displayedProjects.length === 0 ? (
                         <p className="text-muted-foreground">
                             No projects match the selected filters.
                         </p>
                     ) : (
                         displayedProjects.map((project) => (
-                            <Card key={project.id}>
-                                <CardHeader>
-                                    <CardTitle>{project.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent>
-                                    <p>{project.description}</p>
-                                </CardContent>
-                            </Card>
+                            <Project key={project.id} project={project} />
                         ))
                     )}
-
-                    {hasMore && (
-                        <Button
-                            variant="outline"
-                            onClick={() => setShowAll((prev) => !prev)}
-                            className="w-full sm:w-auto"
-                        >
-                            {showAll ? "See less" : "See more"}
-                        </Button>
-                    )}
                 </div>
+
+                {hasMore && (
+                    <Button
+                        variant="outline"
+                        onClick={() => setShowAll((prev) => !prev)}
+                        className="w-full sm:w-auto"
+                    >
+                        {showAll ? "See less" : "See more"}
+                    </Button>
+                )}
             </div>
         </section>
     );
