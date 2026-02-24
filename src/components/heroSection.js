@@ -17,17 +17,22 @@ export default function HeroSection() {
 
     return (
         <section
-            className="relative z-10 text-left mt-10
-            min-h-screen
-            flex flex-row gap-10"
+            className="relative z-10 text-left
+            flex flex-row gap-10 pt-20 items-stretch
+            border-2 border-green-500"
         >
-            <div className="flex-1 flex flex-col gap-4 h-full">
-                <div className="text-foreground text-4xl font-bold">
-                    I’m Frances, a developer and designer
-                </div>
-                <div className="text-foreground text-xl font-bold">
-                    I don't just build websites; I craft dynamic full-stack
-                    solutions that prioritize both form and function.
+            <div
+                className="flex-1 flex flex-col justify-between 
+            border-2 border-blue-500 items-stretch"
+            >
+                <div className="flex flex-col gap-4">
+                    <div className="text-foreground text-4xl font-bold">
+                        I’m Frances, a developer and designer
+                    </div>
+                    <div className="text-foreground text-xl font-bold">
+                        I don't just build websites; I craft dynamic full-stack
+                        solutions that prioritize both form and function.
+                    </div>
                 </div>
 
                 {/* important buttons here */}
@@ -68,7 +73,10 @@ export default function HeroSection() {
             </div>
 
             {/* Project Previews */}
-            <div className="flex-1 grid grid-cols-2 gap-4 items-start self-start">
+            <div
+                className="flex-1 grid grid-cols-2 gap-4 items-start self-stretch
+            border-2 border-red-500"
+            >
                 <SpotlightCard
                     className="custom-spotlight-card aspect-square"
                     spotlightColor="rgba(236, 72, 153, 0.25)"
@@ -82,20 +90,6 @@ export default function HeroSection() {
                     onClick={() => handleProjectClick(2)}
                 >
                     Project 2
-                </SpotlightCard>
-                <SpotlightCard
-                    className="custom-spotlight-card aspect-square"
-                    spotlightColor="rgba(236, 72, 153, 0.25)"
-                    onClick={() => handleProjectClick(3)}
-                >
-                    Project 3
-                </SpotlightCard>
-                <SpotlightCard
-                    className="custom-spotlight-card aspect-square"
-                    spotlightColor="rgba(236, 72, 153, 0.25)"
-                    onClick={() => handleProjectClick(3)}
-                >
-                    Project 4
                 </SpotlightCard>
             </div>
         </section>

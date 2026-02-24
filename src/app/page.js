@@ -12,7 +12,7 @@ import ContactMe from "@/components/contactMe";
 export default function Home() {
     return (
         <div>
-            <div className="min-h-screen w-full bg-white relative p-20">
+            <div className="min-h-screen w-full bg-white relative">
                 {/* Pink Glow Background */}
                 <div
                     className="absolute inset-0 z-0 pointer-events-none"
@@ -26,14 +26,21 @@ export default function Home() {
                 {/* Your Content/Components */}
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
-                    <Statistics />
-                    <AboutMe />
-                    <CTASection />
-                    <ExperienceSection />
                     <ProjectsSection />
+                </div>
+
+                <Statistics />
+
+                <div className="relative z-10 w-3/4 mx-auto">
+                    <AboutMe />
+                </div>
+
+                <CTASection />
+                <div className="relative z-10 w-3/4 mx-auto">
+                    <ExperienceSection />
+
                     <TechStack />
                     <ContactMe />
-                    {/* <ProjectSection /> */}
                 </div>
             </div>
         </div>
