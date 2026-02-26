@@ -4,6 +4,7 @@ import SpotlightCard from "@/components/SpotlightCard";
 import { Button } from "@/components/ui/button";
 import ShinyText from "@/components/ShinyText";
 import { ArrowRightIcon } from "lucide-react";
+import ProjectSwiper from "@/components/projectSwiper";
 
 export default function HeroSection() {
     const handleProjectClick = (projectNumber) => {
@@ -69,21 +70,8 @@ export default function HeroSection() {
             </div>
 
             {/* Project Previews */}
-            <div className="flex-1 grid grid-cols-2 gap-4 items-start self-stretch">
-                <SpotlightCard
-                    className="custom-spotlight-card aspect-square"
-                    spotlightColor="rgba(236, 72, 153, 0.25)"
-                    onClick={() => handleProjectClick(1)}
-                >
-                    Project 1
-                </SpotlightCard>
-                <SpotlightCard
-                    className="custom-spotlight-card aspect-square"
-                    spotlightColor="rgba(236, 72, 153, 0.25)"
-                    onClick={() => handleProjectClick(2)}
-                >
-                    Project 2
-                </SpotlightCard>
+            <div className="flex-1 gap-4">
+                <ProjectSwiper />
             </div>
         </section>
     );
