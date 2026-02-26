@@ -2,158 +2,120 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projects";
 import Project from "@/components/Project";
+import SpotlightCard from "@/components/SpotlightCard";
 import {
     technologies as technologiesList,
     getTechnologyName,
 } from "@/data/technologies";
+import { Bot, Code, CodeXml, Database, PanelTop, PenTool } from "lucide-react";
+import Button from "@/components/button";
 
 const ALL = "All";
 const PROJECTS_DISPLAY_LIMIT = 3;
 
 export default function ProjectsSection() {
-    const [selectedCategory, setSelectedCategory] = useState(null);
-    const [selectedTechnology, setSelectedTechnology] = useState(null);
-    const [showAll, setShowAll] = useState(false);
-
-    const categories = useMemo(
-        () => [...new Set(projects.map((p) => p.category))].sort(),
-        [],
-    );
-    const technologies = useMemo(() => {
-        const usedIds = new Set(projects.flatMap((p) => p.technologies || []));
-        return technologiesList
-            .filter((t) => usedIds.has(t.id))
-            .map((t) => t.id);
-    }, []);
-
-    const filteredProjects = useMemo(() => {
-        return projects.filter((project) => {
-            const matchCategory =
-                !selectedCategory || project.category === selectedCategory;
-            const matchTechnology =
-                !selectedTechnology ||
-                (project.technologies &&
-                    project.technologies.includes(selectedTechnology));
-            return matchCategory && matchTechnology;
-        });
-    }, [selectedCategory, selectedTechnology]);
-
-    useEffect(() => {
-        setShowAll(false);
-    }, [selectedCategory, selectedTechnology]);
-
-    const displayedProjects = showAll
-        ? filteredProjects
-        : filteredProjects.slice(0, PROJECTS_DISPLAY_LIMIT);
-    const hasMore = filteredProjects.length > PROJECTS_DISPLAY_LIMIT;
-
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
-            <h1 className="text-4xl font-bold">Projects</h1>
+            <h1 className="text-4xl font-bold mb-4">Projects</h1>
 
-            <div className="w-full max-w-7xl flex flex-col gap-6 mt-12">
-                {/* Category filter */}
-                <div className="flex flex-col gap-2">
-                    <span className="text-sm font-medium text-muted-foreground">
-                        Category
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                        <Button
-                            variant={
-                                selectedCategory === null
-                                    ? "default"
-                                    : "outline"
-                            }
-                            size="sm"
-                            onClick={() => setSelectedCategory(null)}
+            {/* Project Category Spotlight Cards */}
+            <div className="flex flex-row gap-4 mb-4">
+                <SpotlightCard className="flex-1 text-white">
+                    <div className="flex flex-col gap-4 h-full">
+                        {/* frosted background for the icon */}
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
                         >
-                            {ALL}
-                        </Button>
-                        {categories.map((cat) => (
-                            <Button
-                                key={cat}
-                                variant={
-                                    selectedCategory === cat
-                                        ? "default"
-                                        : "outline"
-                                }
-                                size="sm"
-                                onClick={() =>
-                                    setSelectedCategory(
-                                        selectedCategory === cat ? null : cat,
-                                    )
-                                }
-                            >
-                                {cat}
-                            </Button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Technology filter */}
-                <div className="flex flex-col gap-2">
-                    <span className="text-sm font-medium text-muted-foreground">
-                        Technology
-                    </span>
-                    <div className="flex flex-wrap gap-2">
-                        <Button
-                            variant={
-                                selectedTechnology === null
-                                    ? "default"
-                                    : "outline"
-                            }
-                            size="sm"
-                            onClick={() => setSelectedTechnology(null)}
-                        >
-                            {ALL}
-                        </Button>
-                        {technologies.map((techId) => (
-                            <Button
-                                key={techId}
-                                variant={
-                                    selectedTechnology === techId
-                                        ? "default"
-                                        : "outline"
-                                }
-                                size="sm"
-                                onClick={() =>
-                                    setSelectedTechnology(
-                                        selectedTechnology === techId
-                                            ? null
-                                            : techId,
-                                    )
-                                }
-                            >
-                                {getTechnologyName(techId)}
-                            </Button>
-                        ))}
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 items-stretch">
-                    {displayedProjects.length === 0 ? (
-                        <p className="text-muted-foreground">
-                            No projects match the selected filters.
+                            <PenTool className="w-6 h-6" />
+                        </div>
+                        <p>UI/UX Research & Design</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I conduct research to understand user needs
+                            and behaviors, and how I use the findings to inform
+                            the design and development of user interfaces and
+                            experiences.
                         </p>
-                    ) : (
-                        displayedProjects.map((project) => (
-                            <Project key={project.id} project={project} />
-                        ))
-                    )}
-                </div>
+                        <Button className="mt-auto">View Projects</Button>
+                    </div>
+                </SpotlightCard>
+                <SpotlightCard className="flex-1 text-white">
+                    <div className="flex flex-col gap-4 h-full">
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
+                        >
+                            <Bot className="w-6 h-6" />
+                        </div>
+                        <p>UI/UX Prototyping & AI-Assisted Development</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I translate business requirements into
+                            user-centered prototypes and leverage AI tools to
+                            design and develop intuitive mobile and desktop
+                            applications.
+                        </p>
+                        <Button className="mt-auto">View Projects</Button>
+                    </div>
+                </SpotlightCard>
+                <SpotlightCard className="flex-1 text-white">
+                    <div className="flex flex-col gap-4 h-full">
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
+                        >
+                            <PanelTop className="w-6 h-6" />
+                        </div>
+                        <p>Website Management & SEO</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I collaborate with SEO and marketing teams
+                            to build and manage high-performing WordPress
+                            websites.
+                        </p>
+                        <Button className="mt-auto">View Projects</Button>
+                    </div>
+                </SpotlightCard>
+            </div>
 
-                {hasMore && (
-                    <Button
-                        variant="outline"
-                        onClick={() => setShowAll((prev) => !prev)}
-                        className="w-full sm:w-auto"
-                    >
-                        {showAll ? "See less" : "See more"}
-                    </Button>
-                )}
+            <div className="flex flex-row gap-4">
+                <SpotlightCard className="flex-1 text-white">
+                    <div className="flex flex-col gap-4 h-full">
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
+                        >
+                            <Database className="w-6 h-6" />
+                        </div>
+                        <p>Full Stack</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I design and develop full-stack applications
+                            using data-driven decisions.
+                        </p>
+                        <Button className="mt-auto">View Projects</Button>
+                    </div>
+                </SpotlightCard>
+                <SpotlightCard className="flex-1 text-white">
+                    <div className="flex flex-col gap-4 h-full">
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
+                        >
+                            <CodeXml className="w-6 h-6" />
+                        </div>
+                        <p>Web Application</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I design and develop web applications using
+                            data-driven decisions.
+                        </p>
+                        <Button className="mt-auto">View Projects</Button>
+                    </div>
+                </SpotlightCard>
             </div>
         </section>
     );
