@@ -22,7 +22,7 @@ export default function TechStack() {
         ? technologies.find((t) => t.id === selectedTechId)
         : null;
     const projectsForSelectedTech = selectedTechId
-        ? projectsByTechId[selectedTechId] ?? []
+        ? (projectsByTechId[selectedTechId] ?? [])
         : [];
 
     useEffect(() => {
@@ -35,7 +35,7 @@ export default function TechStack() {
     }, [selectedTechId]);
 
     return (
-        <section className="relative z-10 min-h-screen flex flex-col justify-center items-center gap-6 py-20">
+        <section className="relative z-10 flex flex-col justify-center items-center gap-6 py-20">
             <div className="text-4xl text-center font-bold w-full">
                 Tech Stack
             </div>
@@ -43,9 +43,15 @@ export default function TechStack() {
                 {technologies.map((tech) => (
                     <Button
                         key={tech.id}
-                        variant="outline"
                         size="sm"
-                        className="rounded-lg cursor-pointer"
+                        className="cursor-pointer
+                        text-black border border-black
+                        bg-white/10 p-2 rounded-full px-4
+                        hover:bg-[#ffb6c1]/20
+                        hover:scale-120 transition-all duration-100
+                        hover:shadow-lg hover:shadow-[#ffb6c1]/30
+                        hover:mx-2
+                        flex items-center justify-center"
                         onClick={() => setSelectedTechId(tech.id)}
                     >
                         {tech.name}

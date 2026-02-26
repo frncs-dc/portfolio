@@ -25,6 +25,7 @@ export default function Home() {
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
                     <ProjectsSection />
+                    <TechStack />
                 </div>
 
                 <div className="relative z-10 w-3/4 mx-auto">
@@ -35,7 +36,6 @@ export default function Home() {
                 <div className="relative z-10 w-3/4 mx-auto">
                     <ExperienceSection />
 
-                    <TechStack />
                     <ContactMe />
                 </div>
             </div>
