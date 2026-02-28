@@ -26,16 +26,15 @@ export default function Home() {
                     <HeroSection />
                     <ProjectsSection />
                     <TechStack />
-                </div>
-
-                <div className="relative z-10 w-3/4 mx-auto">
                     <AboutMe />
                 </div>
 
-                {/* <CTASection /> */}
+                <div className="relative z-10 bg-pink-200 flex justify-center my-12 px-4">
+                    <CTASection />
+                </div>
+
                 <div className="relative z-10 w-3/4 mx-auto">
                     <ExperienceSection />
-
                     <ContactMe />
                 </div>
             </div>

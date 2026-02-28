@@ -16,11 +16,10 @@ export const technologies = [
     { id: "tailwind-css", name: "Tailwind CSS" },
     { id: "thematic-analysis", name: "Thematic Analysis" },
     { id: "typescript", name: "TypeScript" },
+    { id: "wordpress", name: "WordPress" },
 ];
 
-const nameById = Object.fromEntries(
-    technologies.map((t) => [t.id, t.name]),
-);
+const nameById = Object.fromEntries(technologies.map((t) => [t.id, t.name]));
 
 /** Get display name for a technology id (e.g. from project.technologies). */
 export function getTechnologyName(id) {

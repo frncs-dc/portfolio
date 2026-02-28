@@ -1,19 +1,8 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { projects } from "@/data/projects";
-import Project from "@/components/Project";
 import SpotlightCard from "@/components/SpotlightCard";
-import {
-    technologies as technologiesList,
-    getTechnologyName,
-} from "@/data/technologies";
 import { Bot, Code, CodeXml, Database, PanelTop, PenTool } from "lucide-react";
-import Button from "@/components/button";
-
-const ALL = "All";
-const PROJECTS_DISPLAY_LIMIT = 3;
+import ProjCategoryButton from "@/components/button";
 
 export default function ProjectsSection() {
     return (
@@ -39,7 +28,9 @@ export default function ProjectsSection() {
                             the design and development of user interfaces and
                             experiences.
                         </p>
-                        <Button className="mt-auto">View Projects</Button>
+                        <ProjCategoryButton className="mt-auto">
+                            View Projects
+                        </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
                 <SpotlightCard className="flex-1 text-white">
@@ -58,7 +49,9 @@ export default function ProjectsSection() {
                             design and develop intuitive mobile and desktop
                             applications.
                         </p>
-                        <Button className="mt-auto">View Projects</Button>
+                        <ProjCategoryButton className="mt-auto">
+                            View Projects
+                        </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
                 <SpotlightCard className="flex-1 text-white">
@@ -76,7 +69,9 @@ export default function ProjectsSection() {
                             to build and manage high-performing WordPress
                             websites.
                         </p>
-                        <Button className="mt-auto">View Projects</Button>
+                        <ProjCategoryButton className="mt-auto">
+                            View Projects
+                        </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
             </div>
@@ -96,7 +91,9 @@ export default function ProjectsSection() {
                             See how I design and develop full-stack applications
                             using data-driven decisions.
                         </p>
-                        <Button className="mt-auto">View Projects</Button>
+                        <ProjCategoryButton className="mt-auto">
+                            View Projects
+                        </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
                 <SpotlightCard className="flex-1 text-white">
@@ -113,7 +110,9 @@ export default function ProjectsSection() {
                             See how I design and develop web applications using
                             data-driven decisions.
                         </p>
-                        <Button className="mt-auto">View Projects</Button>
+                        <ProjCategoryButton className="mt-auto">
+                            View Projects
+                        </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
             </div>
