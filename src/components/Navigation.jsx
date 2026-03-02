@@ -31,6 +31,10 @@ const navItems = [
                 label: "Web Development",
                 href: "/projects/web-development",
             },
+            {
+                label: "UI/UX Prototyping & AI-Assisted Development",
+                href: "/projects/prototyping-with-ai",
+            },
         ],
     },
     {

@@ -65,7 +65,12 @@ export default function ProjectsSection() {
                             applications.
                         </p>
                         <ProjCategoryButton className="mt-auto">
-                            View Projects
+                            <Link
+                                href="/projects/prototyping-with-ai"
+                                className="inline-flex items-center gap-2"
+                            >
+                                View Projects
+                            </Link>
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
@@ -85,7 +90,12 @@ export default function ProjectsSection() {
                             websites.
                         </p>
                         <ProjCategoryButton className="mt-auto">
-                            View Projects
+                            <Link
+                                href="/projects/website-management"
+                                className="inline-flex items-center gap-2"
+                            >
+                                View Projects
+                            </Link>
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
@@ -107,7 +117,12 @@ export default function ProjectsSection() {
                             using data-driven decisions.
                         </p>
                         <ProjCategoryButton className="mt-auto">
-                            View Projects
+                            <Link
+                                href="/projects/full-stack"
+                                className="inline-flex items-center gap-2"
+                            >
+                                View Projects
+                            </Link>
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
@@ -126,7 +141,12 @@ export default function ProjectsSection() {
                             data-driven decisions.
                         </p>
                         <ProjCategoryButton className="mt-auto">
-                            View Projects
+                            <Link
+                                href="/projects/web-development"
+                                className="inline-flex items-center gap-2"
+                            >
+                                View Projects
+                            </Link>
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
