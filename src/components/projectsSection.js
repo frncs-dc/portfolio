@@ -1,9 +1,18 @@
 "use client";
 
 import SpotlightCard from "@/components/SpotlightCard";
-import { Bot, Code, CodeXml, Database, PanelTop, PenTool } from "lucide-react";
+import {
+    ArrowRightIcon,
+    Bot,
+    Code,
+    CodeXml,
+    Database,
+    PanelTop,
+    PenTool,
+} from "lucide-react";
 import ProjCategoryButton from "@/components/button";
-
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 export default function ProjectsSection() {
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
@@ -28,8 +37,14 @@ export default function ProjectsSection() {
                             the design and development of user interfaces and
                             experiences.
                         </p>
-                        <ProjCategoryButton className="mt-auto">
-                            View Projects
+                        <ProjCategoryButton asChild className="mt-auto">
+                            <Link
+                                href="/projects/uiux-research-design"
+                                className="inline-flex items-center gap-2"
+                            >
+                                View Projects
+                                <ArrowRightIcon className="w-4 h-4" />
+                            </Link>
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>

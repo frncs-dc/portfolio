@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
-export default function ProjCategoryButton({ children, onClick, ...props }) {
+export default function ProjCategoryButton({
+    children,
+    asChild,
+    onClick,
+    ...props
+}) {
     return (
         <Button
             className="bg-[#ffb6c1] text-black
@@ -12,11 +17,18 @@ export default function ProjCategoryButton({ children, onClick, ...props }) {
             hover:border-2 hover:border-[#ffb6c1]
             hover:text-black
             flex items-center justify-center"
+            asChild={asChild}
             {...props}
             onClick={onClick}
         >
-            {children}
-            <ArrowRightIcon className="w-4 h-4" />
+            {asChild ? (
+                children
+            ) : (
+                <>
+                    {children}
+                    <ArrowRightIcon className="w-4 h-4" />
+                </>
+            )}
         </Button>
     );
 }
