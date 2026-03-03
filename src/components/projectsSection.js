@@ -13,7 +13,19 @@ import {
 import ProjCategoryButton from "@/components/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { useState } from "react";
+
 export default function ProjectsSection() {
+    const router = useRouter();
+    const [loadingPath, setLoadingPath] = useState(null);
+
+    const handleNavigate = (href) => (event) => {
+        event.preventDefault();
+        if (loadingPath) return;
+        setLoadingPath(href);
+        router.push(href);
+    };
+
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
             <h1 className="text-4xl font-bold mb-4">Projects</h1>
@@ -40,10 +52,24 @@ export default function ProjectsSection() {
                         <ProjCategoryButton asChild className="mt-auto">
                             <Link
                                 href="/projects/uiux-research-design"
-                                className="inline-flex items-center gap-2"
+                                onClick={handleNavigate("/projects/uiux-research-design")}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/uiux-research-design"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={
+                                    loadingPath === "/projects/uiux-research-design"
+                                }
                             >
-                                View Projects
-                                <ArrowRightIcon className="w-4 h-4" />
+                                {loadingPath === "/projects/uiux-research-design" ? (
+                                    "Loading..."
+                                ) : (
+                                    <>
+                                        View Projects
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </>
+                                )}
                             </Link>
                         </ProjCategoryButton>
                     </div>
@@ -67,9 +93,19 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/prototyping-with-ai"
-                                className="inline-flex items-center gap-2"
+                                onClick={handleNavigate("/projects/prototyping-with-ai")}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/prototyping-with-ai"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={
+                                    loadingPath === "/projects/prototyping-with-ai"
+                                }
                             >
-                                View Projects
+                                {loadingPath === "/projects/prototyping-with-ai"
+                                    ? "Loading..."
+                                    : "View Projects"}
                             </Link>
                         </ProjCategoryButton>
                     </div>
@@ -92,9 +128,19 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/website-management"
-                                className="inline-flex items-center gap-2"
+                                onClick={handleNavigate("/projects/website-management")}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/website-management"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={
+                                    loadingPath === "/projects/website-management"
+                                }
                             >
-                                View Projects
+                                {loadingPath === "/projects/website-management"
+                                    ? "Loading..."
+                                    : "View Projects"}
                             </Link>
                         </ProjCategoryButton>
                     </div>
@@ -119,9 +165,17 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/full-stack"
-                                className="inline-flex items-center gap-2"
+                                onClick={handleNavigate("/projects/full-stack")}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/full-stack"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={loadingPath === "/projects/full-stack"}
                             >
-                                View Projects
+                                {loadingPath === "/projects/full-stack"
+                                    ? "Loading..."
+                                    : "View Projects"}
                             </Link>
                         </ProjCategoryButton>
                     </div>
@@ -143,9 +197,19 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/web-development"
-                                className="inline-flex items-center gap-2"
+                                onClick={handleNavigate("/projects/web-development")}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/web-development"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={
+                                    loadingPath === "/projects/web-development"
+                                }
                             >
-                                View Projects
+                                {loadingPath === "/projects/web-development"
+                                    ? "Loading..."
+                                    : "View Projects"}
                             </Link>
                         </ProjCategoryButton>
                     </div>
