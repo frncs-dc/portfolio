@@ -32,7 +32,10 @@ export default function ProjectsSection() {
 
             {/* Project Category Spotlight Cards */}
             <div className="flex flex-row gap-4 mb-4">
-                <SpotlightCard className="flex-1 text-white">
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/uiux-research-design")}
+                >
                     <div className="flex flex-col gap-4 h-full">
                         {/* frosted background for the icon */}
                         <div
@@ -74,7 +77,10 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
-                <SpotlightCard className="flex-1 text-white">
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/prototyping-with-ai")}
+                >
                     <div className="flex flex-col gap-4 h-full">
                         <div
                             className="bg-white/10 p-2 rounded-xl
@@ -110,7 +116,10 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
-                <SpotlightCard className="flex-1 text-white">
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/website-management")}
+                >
                     <div className="flex flex-col gap-4 h-full">
                         <div
                             className="bg-white/10 p-2 rounded-xl
@@ -148,7 +157,10 @@ export default function ProjectsSection() {
             </div>
 
             <div className="flex flex-row gap-4">
-                <SpotlightCard className="flex-1 text-white">
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/full-stack")}
+                >
                     <div className="flex flex-col gap-4 h-full">
                         <div
                             className="bg-white/10 p-2 rounded-xl
@@ -180,7 +192,10 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
-                <SpotlightCard className="flex-1 text-white">
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/web-development")}
+                >
                     <div className="flex flex-col gap-4 h-full">
                         <div
                             className="bg-white/10 p-2 rounded-xl

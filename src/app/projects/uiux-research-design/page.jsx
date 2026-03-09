@@ -80,9 +80,12 @@ export default function UIUXResearchDesign() {
                         </p>
                         <p className="text-sm text-neutral-500">
                             A Progressive Web Application (PWA) for financial
-                            goal management.
+                            goal management. This was made to support a study
+                            that explores how to improve financial goal
+                            achievement by making transaction logging easier and
+                            providing better goal-setting support.
                         </p>
-                        <Button>
+                        <Button className="w-fit">
                             <Link href="/projects/pisocake">View Project</Link>
                         </Button>
                     </div>
@@ -90,7 +93,7 @@ export default function UIUXResearchDesign() {
                 {/* reverse: image overflowing right & bottom */}
                 <div
                     className="relative flex flex-row-reverse items-center gap-4
-                    px-20 pb-10"
+                    px-20"
                 >
                     <Image
                         src="/Projects/Food Storage/FoodStorage.webp"
@@ -109,8 +112,43 @@ export default function UIUXResearchDesign() {
                         <p className="text-sm text-neutral-500">
                             A web application for food storage management.
                         </p>
-                        <Button>
+                        <Button className="w-fit">
                             <Link href="/projects/food-storage">
+                                View Project
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+
+                <div
+                    className="relative flex flex-row items-center gap-4
+                    px-20 pb-10
+                    bg-pink-500/10"
+                    id="project-1-container"
+                >
+                    <Image
+                        src="/Projects/Website Management/Website.webp"
+                        alt="Website Management"
+                        width={260}
+                        height={500}
+                        className="z-30 -ml-8 -mt-20 mb-[-6rem] h-auto w-[350px] rounded-2xl
+                        cursor-pointer
+                        hover:scale-110 transition-all duration-300 hover:mr-20"
+                        onClick={() => {
+                            router.push("/projects/pisocake");
+                        }}
+                    />
+                    <div className="flex flex-col gap-2">
+                        <p className="text-lg font-semibold">
+                            Website Management
+                        </p>
+                        <p className="text-sm text-neutral-500">
+                            See how I collaborate with SEO and marketing teams
+                            to build and manage high-performing WordPress
+                            websites.
+                        </p>
+                        <Button className="w-fit">
+                            <Link href="/projects/website-management">
                                 View Project
                             </Link>
                         </Button>
