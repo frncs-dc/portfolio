@@ -6,6 +6,7 @@ import CTASection from "@/components/ctaSection";
 import ProjectsSection from "@/components/projectsSection";
 import TechStack from "@/components/techStack";
 import ContactMe from "@/components/contactMe";
+import FeaturedWorks from "@/components/featuredWorks";
 
 export default function Home() {
     return (
@@ -24,6 +25,7 @@ export default function Home() {
                 {/* Your Content/Components */}
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
+                    <FeaturedWorks />
                     <ProjectsSection />
                     <TechStack />
                     <AboutMe />
