@@ -28,7 +28,7 @@ export default async function CaseStudyLayout({
     const html = markdownSlug ? await getProjectHtml(markdownSlug) : "";
 
     return (
-        <div className="relative z-10 min-h-screen px-6 py-10 md:px-16 lg:px-24">
+        <div className="relative z-10 min-h-screen px-6 py-20 md:px-16 lg:px-24">
             {/* background accents */}
             <div className="pointer-events-none absolute inset-0 -z-10">
                 <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-pink-500/25 blur-3xl" />
@@ -159,4 +159,3 @@ export default async function CaseStudyLayout({
         </div>
     );
 }
-

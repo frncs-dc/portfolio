@@ -94,34 +94,6 @@ To support this, the system provides **progress feedback and goal re-evaluation 
 
 ---
 
-# Solution Overview
-
-The final solution focuses on **supporting consistent financial habits while adapting to different user behaviors and routines**.
-
-## Flexible Transaction Logging
-
-Multiple logging methods allow users to record transactions according to their preferred workflow and transaction types.
-
-This flexibility helps reduce friction and makes financial tracking easier to maintain.
-
----
-
-## SMART-Based Financial Goal Setting
-
-Users can define clear financial goals using the SMART framework and monitor their progress over time.
-
-This structured approach helps users maintain financial discipline while still allowing adjustments when needed.
-
----
-
-## Progress Feedback and Goal Re-Evaluation
-
-The system provides visual progress feedback and encourages users to periodically review their goals.
-
-These features help users reflect on their spending behavior and make informed financial adjustments.
-
----
-
 # Key Findings from Evaluation
 
 ## Routine, Not Automation, Defines Convenience
