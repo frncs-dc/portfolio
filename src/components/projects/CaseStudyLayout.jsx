@@ -7,6 +7,7 @@ import {
     BreadcrumbSeparator,
     BreadcrumbList,
 } from "@/components/ui/breadcrumb";
+import ContactForm from "@/components/ContactForm";
 
 export default async function CaseStudyLayout({
     title,
@@ -131,28 +132,11 @@ export default async function CaseStudyLayout({
 
                 <aside className="hidden lg:block self-start sticky top-28">
                     <div className="rounded-2xl border border-neutral-800/40 bg-neutral-900/80 backdrop-blur px-5 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
-                        <p className="text-xs font-semibold uppercase tracking-[0.25em] text-pink-300 mb-3">
-                            Contact
-                        </p>
-                        <p className="text-sm text-neutral-200 mb-4">
-                            {contact?.blurb}
-                        </p>
-                        <div className="space-y-2 text-sm text-neutral-200">
-                            <p className="font-medium">Let&apos;s connect</p>
-                            <a
-                                href={`mailto:${contact?.email}`}
-                                className="block text-pink-300 hover:text-pink-200 underline underline-offset-2"
-                            >
-                                {contact?.email}
-                            </a>
-                            <a
-                                href={contact?.contactHref}
-                                className="inline-flex items-center gap-1.5 text-xs text-neutral-200/80 hover:text-white mt-2"
-                            >
-                                <span>{contact?.contactLabel}</span>
-                                <span aria-hidden="true">↗</span>
-                            </a>
-                        </div>
+                        <ContactForm
+                            title="Contact"
+                            blurb={contact?.blurb}
+                            compact
+                        />
                     </div>
                 </aside>
             </div>

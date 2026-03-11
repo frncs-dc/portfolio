@@ -24,8 +24,12 @@ const navItems = [
         href: "/projects",
         children: [
             {
-                label: "UI/UX Research and Design",
-                href: "/projects/uiux-research-design",
+                label: "UI/UX Research",
+                href: "/projects/uiux-research",
+            },
+            {
+                label: "UI/UX Design",
+                href: "/projects/uiux-design",
             },
             {
                 label: "Web Development",

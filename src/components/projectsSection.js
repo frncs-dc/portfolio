@@ -34,7 +34,7 @@ export default function ProjectsSection() {
             <div className="flex flex-row gap-4 mb-4">
                 <SpotlightCard
                     className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/uiux-research-design")}
+                    onClick={handleNavigate("/projects/uiux-research")}
                 >
                     <div className="flex flex-col gap-4 h-full">
                         {/* frosted background for the icon */}
@@ -45,27 +45,27 @@ export default function ProjectsSection() {
                         >
                             <PenTool className="w-6 h-6" />
                         </div>
-                        <p>UI/UX Research & Design</p>
+                        <p>UI/UX Research</p>
                         <p className="text-sm text-neutral-200 flex-1">
                             See how I conduct research to understand user needs
-                            and behaviors, and how I use the findings to inform
-                            the design and development of user interfaces and
-                            experiences.
+                            and behaviors.
                         </p>
                         <ProjCategoryButton asChild className="mt-auto">
                             <Link
-                                href="/projects/uiux-research-design"
-                                onClick={handleNavigate("/projects/uiux-research-design")}
+                                href="/projects/uiux-research"
+                                onClick={handleNavigate(
+                                    "/projects/uiux-research",
+                                )}
                                 className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/uiux-research-design"
+                                    loadingPath === "/projects/uiux-research"
                                         ? "pointer-events-none opacity-60"
                                         : ""
                                 }`}
                                 aria-disabled={
-                                    loadingPath === "/projects/uiux-research-design"
+                                    loadingPath === "/projects/uiux-research"
                                 }
                             >
-                                {loadingPath === "/projects/uiux-research-design" ? (
+                                {loadingPath === "/projects/uiux-research" ? (
                                     "Loading..."
                                 ) : (
                                     <>
@@ -77,6 +77,53 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
+
+                <SpotlightCard
+                    className="flex-1 text-white"
+                    onClick={handleNavigate("/projects/uiux-design")}
+                >
+                    <div className="flex flex-col gap-4 h-full">
+                        {/* frosted background for the icon */}
+                        <div
+                            className="bg-white/10 p-2 rounded-xl
+                    w-12 h-12
+                    flex items-center justify-center"
+                        >
+                            <PenTool className="w-6 h-6" />
+                        </div>
+                        <p>UI/UX Design</p>
+                        <p className="text-sm text-neutral-200 flex-1">
+                            See how I conduct research to understand user needs
+                            and behaviors.
+                        </p>
+                        <ProjCategoryButton asChild className="mt-auto">
+                            <Link
+                                href="/projects/uiux-design"
+                                onClick={handleNavigate(
+                                    "/projects/uiux-design",
+                                )}
+                                className={`inline-flex items-center gap-2 ${
+                                    loadingPath === "/projects/uiux-design"
+                                        ? "pointer-events-none opacity-60"
+                                        : ""
+                                }`}
+                                aria-disabled={
+                                    loadingPath === "/projects/uiux-design"
+                                }
+                            >
+                                {loadingPath === "/projects/uiux-design" ? (
+                                    "Loading..."
+                                ) : (
+                                    <>
+                                        View Projects
+                                        <ArrowRightIcon className="w-4 h-4" />
+                                    </>
+                                )}
+                            </Link>
+                        </ProjCategoryButton>
+                    </div>
+                </SpotlightCard>
+
                 <SpotlightCard
                     className="flex-1 text-white"
                     onClick={handleNavigate("/projects/prototyping-with-ai")}
@@ -99,14 +146,18 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/prototyping-with-ai"
-                                onClick={handleNavigate("/projects/prototyping-with-ai")}
+                                onClick={handleNavigate(
+                                    "/projects/prototyping-with-ai",
+                                )}
                                 className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/prototyping-with-ai"
+                                    loadingPath ===
+                                    "/projects/prototyping-with-ai"
                                         ? "pointer-events-none opacity-60"
                                         : ""
                                 }`}
                                 aria-disabled={
-                                    loadingPath === "/projects/prototyping-with-ai"
+                                    loadingPath ===
+                                    "/projects/prototyping-with-ai"
                                 }
                             >
                                 {loadingPath === "/projects/prototyping-with-ai"
@@ -116,6 +167,9 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
+            </div>
+
+            <div className="flex flex-row gap-4">
                 <SpotlightCard
                     className="flex-1 text-white"
                     onClick={handleNavigate("/projects/website-management")}
@@ -137,14 +191,18 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/website-management"
-                                onClick={handleNavigate("/projects/website-management")}
+                                onClick={handleNavigate(
+                                    "/projects/website-management",
+                                )}
                                 className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/website-management"
+                                    loadingPath ===
+                                    "/projects/website-management"
                                         ? "pointer-events-none opacity-60"
                                         : ""
                                 }`}
                                 aria-disabled={
-                                    loadingPath === "/projects/website-management"
+                                    loadingPath ===
+                                    "/projects/website-management"
                                 }
                             >
                                 {loadingPath === "/projects/website-management"
@@ -154,9 +212,6 @@ export default function ProjectsSection() {
                         </ProjCategoryButton>
                     </div>
                 </SpotlightCard>
-            </div>
-
-            <div className="flex flex-row gap-4">
                 <SpotlightCard
                     className="flex-1 text-white"
                     onClick={handleNavigate("/projects/full-stack")}
@@ -183,7 +238,9 @@ export default function ProjectsSection() {
                                         ? "pointer-events-none opacity-60"
                                         : ""
                                 }`}
-                                aria-disabled={loadingPath === "/projects/full-stack"}
+                                aria-disabled={
+                                    loadingPath === "/projects/full-stack"
+                                }
                             >
                                 {loadingPath === "/projects/full-stack"
                                     ? "Loading..."
@@ -212,7 +269,9 @@ export default function ProjectsSection() {
                         <ProjCategoryButton className="mt-auto">
                             <Link
                                 href="/projects/web-development"
-                                onClick={handleNavigate("/projects/web-development")}
+                                onClick={handleNavigate(
+                                    "/projects/web-development",
+                                )}
                                 className={`inline-flex items-center gap-2 ${
                                     loadingPath === "/projects/web-development"
                                         ? "pointer-events-none opacity-60"
