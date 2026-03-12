@@ -1,6 +1,6 @@
- "use client";
- 
- import { usePathname, useSearchParams } from "next/navigation";
+"use client";
+
+import { usePathname } from "next/navigation";
  import { useEffect, useRef, useState } from "react";
  
  function isModifiedEvent(event) {
@@ -18,9 +18,8 @@
      );
  }
  
- export default function TopLoadingBar() {
-     const pathname = usePathname();
-     const searchParams = useSearchParams();
+export default function TopLoadingBar() {
+    const pathname = usePathname();
  
      const [visible, setVisible] = useState(false);
      const [progress, setProgress] = useState(0);
@@ -99,26 +98,26 @@
          // eslint-disable-next-line react-hooks/exhaustive-deps
      }, []);
  
-     useEffect(() => {
-         if (prefersReducedMotion) return;
-         const current = `${pathname}${searchParams ? `?${searchParams}` : ""}`;
- 
-         if (!startedRef.current) {
-             lastUrlRef.current = current;
-             return;
-         }
- 
-         if (!lastUrlRef.current || lastUrlRef.current === current) {
-             lastUrlRef.current = current;
-             done();
-         } else {
-             lastUrlRef.current = current;
-             done();
-         }
- 
-         return () => stopRaf();
-         // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [pathname, searchParams]);
+    useEffect(() => {
+        if (prefersReducedMotion) return;
+        const current = `${pathname}`;
+
+        if (!startedRef.current) {
+            lastUrlRef.current = current;
+            return;
+        }
+
+        if (!lastUrlRef.current || lastUrlRef.current === current) {
+            lastUrlRef.current = current;
+            done();
+        } else {
+            lastUrlRef.current = current;
+            done();
+        }
+
+        return () => stopRaf();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pathname]);
  
      if (!visible) return null;
  
