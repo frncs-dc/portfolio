@@ -3,6 +3,7 @@ import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/footer";
 import TopLoadingBar from "@/components/TopLoadingBar";
+import { Suspense } from "react";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -25,7 +26,9 @@ export default function RootLayout({ children }) {
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
-                <TopLoadingBar />
+                <Suspense fallback={null}>
+                    <TopLoadingBar />
+                </Suspense>
                 <Navigation />
                 {children}
                 <Footer />
