@@ -1,4 +1,4 @@
-import CaseStudyLayout from "@/components/projects/CaseStudyLayout";
+import ResearchStudyLayout from "@/components/projects/ResearchCaseStudyLayout";
 
 function HeroVisual() {
     return (
@@ -28,14 +28,17 @@ function HeroVisual() {
 
 export default function PisoCakePage() {
     return (
-        <CaseStudyLayout
+        <ResearchStudyLayout
             title="PisoCAKE"
             subtitle="Designing a financial management tool that balances discipline, convenience, and the unpredictability of everyday life."
             categoryLabel="UX Case Study"
             categoryDetail="Financial Management"
             tags={["UX Research", "Interaction Design", "Financial Tools"]}
             techStack={[
-                { label: "Frontend", value: "Next.js 15 · TypeScript · Tailwind CSS" },
+                {
+                    label: "Frontend",
+                    value: "Next.js 15 · TypeScript · Tailwind CSS",
+                },
                 { label: "Backend", value: "Supabase · PostgreSQL · Prisma" },
                 {
                     label: "Core",

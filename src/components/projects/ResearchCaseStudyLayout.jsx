@@ -9,10 +9,10 @@ import {
 } from "@/components/ui/breadcrumb";
 import ContactForm from "@/components/ContactForm";
 
-export default async function CaseStudyLayout({
+export default async function ResearchCaseStudyLayout({
     title,
     subtitle,
-    categoryLabel = "Case Study",
+    categoryLabel = "Research Case Study",
     categoryDetail,
     tags = [],
     techStack = [],
