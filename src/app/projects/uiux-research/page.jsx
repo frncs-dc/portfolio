@@ -18,7 +18,7 @@ import { ArrowRightIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-export default function UIUXResearchDesign() {
+export default function UIUXResearch() {
     const router = useRouter();
     return (
         <div className="relative z-10 min-h-screen">
@@ -37,19 +37,16 @@ export default function UIUXResearchDesign() {
                         </BreadcrumbItem>
                         <BreadcrumbSeparator />
                         <BreadcrumbItem>
-                            <BreadcrumbLink href="/uiux-research-design">
-                                UI/UX Research & Design
+                            <BreadcrumbLink href="/uiux-research">
+                                UI/UX Research
                             </BreadcrumbLink>
                         </BreadcrumbItem>
                     </BreadcrumbList>
                 </Breadcrumb>
-                <h1 className="text-4xl font-bold mb-4">
-                    UI/UX Research & Design
-                </h1>
+                <h1 className="text-4xl font-bold mb-4">UI/UX Research</h1>
                 <p className="text-lg text-neutral-500 mb-4">
                     See how I conduct research to understand user needs and
-                    behaviors, and how I use the findings to inform the design
-                    and development of user interfaces and experiences.
+                    behaviors.
                 </p>
                 <hr className="w-full border-1/2 border-black" />
             </div>
