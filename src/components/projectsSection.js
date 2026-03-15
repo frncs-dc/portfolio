@@ -28,8 +28,6 @@ export default function ProjectsSection() {
 
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
-            <h1 className="text-4xl font-bold mb-4">Projects</h1>
-
             {/* Project Category Spotlight Cards */}
             <div className="flex flex-row gap-4 mb-4">
                 <SpotlightCard

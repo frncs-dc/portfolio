@@ -72,7 +72,7 @@ export const projects = [
         longDescription:
             "Designed and developed a Progressive Web Application (PWA) to improve financial goal achievement by integrating routine-aligned transaction logging. Conducted a mixed-methods needfinding study involving a survey and semi-structured interviews to identify behavioral themes such as discipline and convenience. Executed eight iterations of prototyping and usability testing to refine user experience. Evaluated the final system through a two-week field study using the NASA Task Load Index (TLX) to assess cognitive workload and the Treatment Self-Regulation Questionnaire (TSRQ) to analyze user motivation.",
         images: [],
-        technologies: ["figma", "typescript", "supabase", "thematic-analysis"],
+        technologies: ["figma", "next,js", "typescript", "supabase", "thematic-analysis"],
         category: "UI/UX Research & Development",
         githubUrl: null,
         liveUrl: null,
