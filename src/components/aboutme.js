@@ -2,14 +2,9 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
 export default function AboutMe() {
     return (
-        <section className="relative z-10 my-24 flex justify-center px-4">
-            <div className="flex w-full max-w-5xl flex-col gap-10 md:flex-row md:items-center">
-                <div className="flex justify-center md:basis-5/12">
-                    <div className="relative h-40 w-40 overflow-hidden rounded-full border bg-muted shadow-lg md:h-56 md:w-56">
-                        {/* picture here */}
-                    </div>
-                </div>
-                <div className="space-y-4 md:basis-7/12">
+        <section className="relative z-10 my-24 flex justify-center">
+            <div className="flex w-full max-w-5xl flex-col gap-10">
+                <div className="space-y-4">
                     <h2 className="text-3xl mb-4 font-semibold tracking-tight sm:text-4xl">
                         About Me
                     </h2>
