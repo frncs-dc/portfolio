@@ -26,7 +26,7 @@ export default function ContactMe() {
                     <div className="flex flex-col gap-2">
                         <p className="text-lg font-bold">Phone</p>
                         <p className="text-lg text-neutral-500">
-                            +63 917 123 4567
+                            +63 976 194 9607
                         </p>
                     </div>
                 </div>

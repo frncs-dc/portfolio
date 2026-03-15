@@ -36,7 +36,7 @@ export default function Footer() {
                             delacruzfrancesjulianne@gmail.com
                         </a>
                         <a href="tel:+639761949607" className="hover:underline">
-                            +63 976 194 9676
+                            +63 976 194 9607
                         </a>
                         <div className="flex flex-wrap items-center gap-3">
                             <a
