@@ -13,7 +13,7 @@ export default function HeroSection() {
     };
 
     const handleGithubClick = () => {
-        window.open("https://github.com/your-username", "_blank");
+        window.open("https://github.com/frncs-dc", "_blank");
     };
 
     return (
