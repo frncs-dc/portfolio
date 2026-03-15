@@ -51,7 +51,7 @@ export default function Navigation() {
     return (
         <NavigationMenu
             viewport={false}
-            className="flex fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm px-12 w-screen max-w-none border-2 border-red-500"
+            className="flex fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm px-12 w-screen max-w-none"
         >
             <NavigationMenuList>
                 {navItems.map((item) => (
