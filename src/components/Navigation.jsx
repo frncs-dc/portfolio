@@ -1,3 +1,5 @@
+"use client";
+
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -9,6 +11,7 @@ import {
     NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const navItems = [
     {
@@ -48,10 +51,27 @@ const navItems = [
 ];
 
 export default function Navigation() {
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setIsScrolled(window.scrollY > 8);
+        };
+
+        handleScroll();
+        window.addEventListener("scroll", handleScroll);
+
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <NavigationMenu
             viewport={false}
-            className="flex fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm px-12 w-screen max-w-none"
+            className={`flex fixed top-0 left-0 right-0 z-50 px-12 w-screen max-w-none transition-colors duration-200 ${
+                isScrolled
+                    ? "bg-background/70 backdrop-blur-sm border-b border-border"
+                    : "bg-transparent"
+            }`}
         >
             <NavigationMenuList>
                 {navItems.map((item) => (
