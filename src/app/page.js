@@ -26,14 +26,20 @@ export default function Home() {
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
                     <FeaturedWorks />
+                    <p className="text-lg text-neutral-500 mb-4">
+                        Or check out the
+                    </p>
+                    <h1 className="text-4xl font-bold mb-4">
+                        Types of Projects I Work On
+                    </h1>
                     <ProjectsSection />
                     <TechStack />
                     <AboutMe />
                 </div>
 
-                <div className="relative z-10 bg-pink-200 flex justify-center my-12 px-4">
+                {/* <div className="relative z-10 bg-pink-200 flex justify-center my-12 px-4">
                     <CTASection />
-                </div>
+                </div> */}
 
                 <div className="relative z-10 w-3/4 mx-auto">
                     <ExperienceSection />
