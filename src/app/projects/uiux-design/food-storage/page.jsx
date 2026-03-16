@@ -8,6 +8,21 @@ import {
 } from "@/components/ui/breadcrumb";
 
 export default function FoodStorage() {
+    const outlineItems = [
+        {
+            id: "grocery-purchasing-priorities",
+            label: "1. Grocery Purchasing Priorities",
+        },
+        {
+            id: "household-organization-storage",
+            label: "2. Household Organization and Storage of Food Items",
+        },
+        {
+            id: "household-prioritization-consumption",
+            label: "3. Household Prioritization of Food Consumption",
+        },
+    ];
+
     return (
         <section className="relative z-10 my-24 flex flex-col justify-center px-4">
             <Breadcrumb>
@@ -15,110 +30,155 @@ export default function FoodStorage() {
                     <BreadcrumbItem>
                         <BreadcrumbLink href="/">Home</BreadcrumbLink>
                     </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/projects">
+                            Projects
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/projects/uiux-design">
+                            UI/UX Design
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/projects/uiux-design/food-storage">
+                            Food Storage
+                        </BreadcrumbLink>
+                    </BreadcrumbItem>
                 </BreadcrumbList>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/projects">Projects</BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/projects/uiux-design">
-                        UI/UX Design
-                    </BreadcrumbLink>
-                </BreadcrumbItem>
-                <BreadcrumbSeparator />
-                <BreadcrumbItem>
-                    <BreadcrumbLink href="/projects/uiux-design/food-storage">
-                        Food Storage
-                    </BreadcrumbLink>
-                </BreadcrumbItem>
             </Breadcrumb>
             <h1 className="text-4xl font-bold">Food Storage</h1>
+            <p className="text-lg text-gray-500">
+                It aims to improve effective communication and collaboration
+                among household members in meal planning, organization, and
+                grocery shopping, leading the researchers to focus the design
+                problem on how to present information to motivate better
+                collaboration in managing groceries.
+            </p>
 
-            {/* Row Item */}
-            <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
-                {/*Item Description*/}
-                <div className="flex flex-col gap-2 justify-center">
-                    <h2 className="text-3xl font-bold">
-                        1. Grocery Purchasing Priorities
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                        This is a description of the item.
-                    </p>
-                </div>
+            <div className="mt-6 grid gap-8 lg:grid-cols-[minmax(220px,0.9fr)_minmax(0,3fr)]">
+                <aside className="hidden lg:block self-start sticky top-28">
+                    <div className="rounded-2xl border border-neutral-800/40 bg-neutral-900/80 backdrop-blur px-5 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-neutral-200">
+                            Outline
+                        </p>
+                        <nav className="mt-4">
+                            <ul className="space-y-2 text-sm text-neutral-200">
+                                {outlineItems.map((item) => (
+                                    <li key={item.id}>
+                                        <a
+                                            href={`#${item.id}`}
+                                            className="block rounded-md px-2 py-1 text-neutral-200/90 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+                                        >
+                                            {item.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
+                </aside>
 
-                {/*Item Image*/}
-                <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
-                    <Image
-                        src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
-                        alt="Item"
-                        width={200}
-                        height={200}
-                    />
-                    <Image
-                        src="/Projects/Food Storage/Cart Family Cart/User View.png"
-                        alt="Item"
-                        width={200}
-                        height={100}
-                    />
-                </div>
-            </div>
+                <div className="space-y-6">
+                    {/* Row Item */}
+                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                        {/*Item Description*/}
+                        <div className="flex flex-col gap-2 justify-center">
+                            <h2
+                                id="grocery-purchasing-priorities"
+                                className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
+                            >
+                                1. Grocery Purchasing Priorities
+                            </h2>
+                            <p className="text-sm text-gray-500">
+                                This is a description of the item.
+                            </p>
+                        </div>
 
-            {/* Row Item */}
-            <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
-                {/*Item Description*/}
-                <div className="flex flex-col gap-2 justify-center">
-                    <h2 className="text-3xl font-bold">
-                        2. Household Organization and Storage of Food Items
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                        This is a description of the item.
-                    </p>
-                </div>
+                        {/*Item Image*/}
+                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                            <Image
+                                src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
+                                alt="Item"
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src="/Projects/Food Storage/Cart Family Cart/User View.png"
+                                alt="Item"
+                                width={200}
+                                height={100}
+                            />
+                        </div>
+                    </div>
 
-                {/*Item Image*/}
-                <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
-                    <Image
-                        src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
-                        alt="Item"
-                        width={200}
-                        height={200}
-                    />
-                    <Image
-                        src="/Projects/Food Storage/Storage/Fridge Storage Area - Gardenia Expanded.png"
-                        alt="Item"
-                        width={200}
-                        height={100}
-                    />
-                </div>
-            </div>
+                    {/* Row Item */}
+                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                        {/*Item Description*/}
+                        <div className="flex flex-col gap-2 justify-center">
+                            <h2
+                                id="household-organization-storage"
+                                className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
+                            >
+                                2. Household Organization and Storage of Food
+                                Items
+                            </h2>
+                            <p className="text-sm text-gray-500">
+                                This is a description of the item.
+                            </p>
+                        </div>
 
-            {/* Row Item */}
-            <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
-                {/*Item Description*/}
-                <div className="flex flex-col gap-2 justify-center">
-                    <h2 className="text-3xl font-bold">
-                        3. Household Prioritization of Food Consumption
-                    </h2>
-                    <p className="text-sm text-gray-500">
-                        This is a description of the item.
-                    </p>
-                </div>
+                        {/*Item Image*/}
+                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                            <Image
+                                src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
+                                alt="Item"
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src="/Projects/Food Storage/Storage/Fridge Storage Area - Gardenia Expanded.png"
+                                alt="Item"
+                                width={200}
+                                height={100}
+                            />
+                        </div>
+                    </div>
 
-                {/*Item Image*/}
-                <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
-                    <Image
-                        src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
-                        alt="Item"
-                        width={200}
-                        height={200}
-                    />
-                    <Image
-                        src="/Projects/Food Storage/Prioritization/Chat Main.png"
-                        alt="Item"
-                        width={200}
-                        height={100}
-                    />
+                    {/* Row Item */}
+                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                        {/*Item Description*/}
+                        <div className="flex flex-col gap-2 justify-center">
+                            <h2
+                                id="household-prioritization-consumption"
+                                className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
+                            >
+                                3. Household Prioritization of Food Consumption
+                            </h2>
+                            <p className="text-sm text-gray-500">
+                                This is a description of the item.
+                            </p>
+                        </div>
+
+                        {/*Item Image*/}
+                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                            <Image
+                                src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
+                                alt="Item"
+                                width={200}
+                                height={200}
+                            />
+                            <Image
+                                src="/Projects/Food Storage/Prioritization/Chat Main.png"
+                                alt="Item"
+                                width={200}
+                                height={100}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
