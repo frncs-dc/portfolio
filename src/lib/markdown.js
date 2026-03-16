@@ -2,6 +2,8 @@ import fs from "fs";
 import path from "path";
 import { remark } from "remark";
 import html from "remark-html";
+import remarkSlug from "remark-slug";
+import remarkAutolinkHeadings from "remark-autolink-headings";
 
 const projectsDir = path.join(process.cwd(), "public/content/");
 
@@ -32,6 +34,13 @@ export async function getProjectHtml(slug) {
     const fileContents = fs.readFileSync(fullPath, "utf8");
 
     const withShortcodes = applyShortcodes(fileContents);
-    const processed = await remark().use(html).process(withShortcodes);
+    const processed = await remark()
+        .use(remarkSlug)
+        .use(remarkAutolinkHeadings, {
+            behavior: "wrap",
+            properties: { className: ["heading-anchor"] },
+        })
+        .use(html)
+        .process(withShortcodes);
     return processed.toString();
 }

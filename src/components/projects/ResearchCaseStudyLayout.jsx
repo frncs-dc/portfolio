@@ -9,6 +9,26 @@ import {
 } from "@/components/ui/breadcrumb";
 import ContactForm from "@/components/ContactForm";
 
+function extractOutlineFromHtml(html) {
+    if (!html) return [];
+
+    const headings = [];
+    const re =
+        /<h([23])\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g;
+
+    for (const match of html.matchAll(re)) {
+        const level = Number(match[1]);
+        const id = match[2];
+        const rawText = match[3] ?? "";
+        const text = rawText.replace(/<[^>]+>/g, "").trim();
+
+        if (!id || !text) continue;
+        headings.push({ level, id, text });
+    }
+
+    return headings;
+}
+
 export default async function ResearchCaseStudyLayout({
     title,
     subtitle,
@@ -27,6 +47,7 @@ export default async function ResearchCaseStudyLayout({
     heroVisual,
 }) {
     const html = markdownSlug ? await getProjectHtml(markdownSlug) : "";
+    const outlineItems = extractOutlineFromHtml(html);
 
     return (
         <div className="relative z-10 min-h-screen px-6 py-20 md:px-16 lg:px-24">
@@ -112,8 +133,43 @@ export default async function ResearchCaseStudyLayout({
                 <div>{heroVisual}</div>
             </section>
 
-            {/* markdown content + sticky contact sidebar */}
-            <div className="mt-6 mb-16 grid gap-10 lg:grid-cols-[minmax(0,3fr)_minmax(260px,1fr)]">
+            {/* sticky outline + markdown content + sticky contact sidebar */}
+            <div className="mt-6 mb-16 grid gap-10 lg:grid-cols-[minmax(220px,0.9fr)_minmax(0,3fr)_minmax(260px,1fr)]">
+                <aside className="hidden lg:block self-start sticky top-28">
+                    <div className="rounded-2xl border border-neutral-800/40 bg-neutral-900/80 backdrop-blur px-5 py-6 shadow-[0_18px_45px_rgba(0,0,0,0.45)]">
+                        <p className="text-[11px] font-medium uppercase tracking-[0.25em] text-neutral-200">
+                            Outline
+                        </p>
+                        {outlineItems?.length ? (
+                            <nav className="mt-4">
+                                <ul className="space-y-2 text-sm text-neutral-200">
+                                    {outlineItems.map((item) => (
+                                        <li
+                                            key={item.id}
+                                            className={
+                                                item.level === 3
+                                                    ? "pl-3"
+                                                    : ""
+                                            }
+                                        >
+                                            <a
+                                                href={`#${item.id}`}
+                                                className="block rounded-md px-2 py-1 text-neutral-200/90 hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400"
+                                            >
+                                                {item.text}
+                                            </a>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </nav>
+                        ) : (
+                            <p className="mt-4 text-sm text-neutral-200/70">
+                                Add headings (## / ###) to show outline.
+                            </p>
+                        )}
+                    </div>
+                </aside>
+
                 <article
                     className="
                         prose max-w-none

@@ -1,5 +1,3 @@
-# UX Case Study: Designing a Financial Management Tool for Discipline and Convenience
-
 ## Problem
 
 Financial management requires both **discipline and consistency**, yet most financial tools assume users follow a rigid budgeting structure. In reality, people manage their finances in different ways—some prefer structured budgeting systems, while others rely on flexible routines.
@@ -12,7 +10,7 @@ This led to the central design question:
 
 ---
 
-# Research
+## Research
 
 To better understand how individuals approach financial management, we conducted **semi-structured interviews with 13 participants**. The interviews explored how people set financial goals, track their transactions, and adapt their financial habits in everyday life.
 
@@ -26,9 +24,9 @@ These themes revealed that successful financial management is influenced not onl
 
 ---
 
-# Key Insights
+## Key Insights
 
-## Discipline Exists on a Spectrum
+### Discipline Exists on a Spectrum
 
 Participants demonstrated different levels of financial discipline. Some relied on **structured budgeting methods**, while others preferred a more flexible approach.
 
@@ -42,7 +40,7 @@ These findings suggest that financial tools should **adapt to different budgetin
 
 ---
 
-## Convenience Determines Whether Users Stay Consistent
+### Convenience Determines Whether Users Stay Consistent
 
 Participants frequently mentioned that financial tracking can become difficult to maintain when it requires too much effort.
 
@@ -52,7 +50,7 @@ At the same time, accessibility and ease of use were key concerns. Participants 
 
 ---
 
-## Financial Planning Is Affected by Uncontrollable Variables
+### Financial Planning Is Affected by Uncontrollable Variables
 
 Even disciplined users face challenges when unexpected situations occur.
 
@@ -62,7 +60,7 @@ This highlights the importance of designing systems that help users **adapt thei
 
 ---
 
-# Design Decisions
+## Design Decisions
 
 Based on the research insights, we identified several design principles that guided the development of the solution.
 
@@ -94,9 +92,9 @@ To support this, the system provides **progress feedback and goal re-evaluation 
 
 ---
 
-# Key Findings from Evaluation
+## Key Findings from Evaluation
 
-## Routine, Not Automation, Defines Convenience
+### Routine, Not Automation, Defines Convenience
 
 One of the most important discoveries was that **convenience is not always determined by automation**.
 
@@ -106,7 +104,7 @@ This revealed that convenience comes from **how well a tool integrates into a us
 
 ---
 
-## A Motivational Mismatch Can Cause Disengagement
+### A Motivational Mismatch Can Cause Disengagement
 
 The evaluation also showed that financial features are most effective when they match a user's **personal motivation style**.
 
@@ -118,7 +116,7 @@ This finding suggests that **a one-size-fits-all motivational design approach is
 
 ---
 
-## Consistent Logging Is the Foundation for Goal Achievement
+### Consistent Logging Is the Foundation for Goal Achievement
 
 Across users, one behavior consistently emerged as the foundation of effective financial management: **consistent transaction logging**.
 
@@ -128,24 +126,24 @@ When users log transactions regularly, the system can create a **feedback loop t
 
 ---
 
-# The Path to Financial Goal Achievement
+## The Path to Financial Goal Achievement
 
 The study revealed a clear pathway that connects everyday financial habits with long-term outcomes.
 
-## Transaction Logging Convenience
+### Transaction Logging Convenience
 
 The simplicity and routine-aligned nature of the manual input method reduces friction and encourages consistent use.
 
-## Consistent Financial Data
+### Consistent Financial Data
 
 This foundational habit provides the reliable financial data needed for meaningful insights and tracking.
 
-## Informed Goal Management
+### Informed Goal Management
 
 With reliable data, the app's feedback and goal re-evaluation features become powerful tools for making informed financial adjustments.
 
 ---
 
-# Key Takeaway
+## Key Takeaway
 
 Effective financial tools should not simply track numbers. They should support **how people actually behave**—balancing discipline, convenience, and the unpredictability of everyday life.
