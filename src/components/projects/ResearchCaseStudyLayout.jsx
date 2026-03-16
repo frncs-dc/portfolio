@@ -30,10 +30,16 @@ export default async function ResearchCaseStudyLayout({
 
     return (
         <div className="relative z-10 min-h-screen px-6 py-20 md:px-16 lg:px-24">
-            {/* background accents */}
+            {/* background accents, echoing homepage radial glow */}
             <div className="pointer-events-none absolute inset-0 -z-10">
-                <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-pink-500/25 blur-3xl" />
-                <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl" />
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage:
+                            "radial-gradient(125% 125% at 50% 90%, #ffffff 40%, #ec4899 100%)",
+                        backgroundSize: "100% 100%",
+                    }}
+                />
             </div>
 
             <Breadcrumb>
@@ -56,9 +62,9 @@ export default async function ResearchCaseStudyLayout({
             </Breadcrumb>
 
             {/* hero */}
-            <section className="mt-8 mb-10 grid gap-6 md:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] items-center">
-                <div className="rounded-3xl bg-white/95 text-black border border-neutral-200 shadow-sm px-6 py-8 md:px-8">
-                    <p className="inline-flex items-center gap-2 rounded-full border border-pink-500/40 bg-pink-500/10 px-3 py-1 text-xs font-medium uppercase tracking-[0.25em] text-pink-700">
+            <section className="mt-8 mb-10 flex flex-row items-start">
+                <div>
+                    <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-pink-800">
                         {categoryLabel}
                         {categoryDetail ? (
                             <>
@@ -67,21 +73,21 @@ export default async function ResearchCaseStudyLayout({
                             </>
                         ) : null}
                     </p>
-                    <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-black">
+                    <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-white">
                         {title}
                     </h1>
                     {subtitle ? (
-                        <p className="mt-3 text-base md:text-lg max-w-xl text-neutral-800">
+                        <p className="mt-3 text-base md:text-lg max-w-2xl text-white">
                             {subtitle}
                         </p>
                     ) : null}
 
                     {tags?.length ? (
-                        <div className="mt-6 flex flex-wrap gap-2 text-xs">
+                        <div className="mt-5 flex flex-wrap gap-2 text-[11px] md:text-xs">
                             {tags.map((t) => (
                                 <span
                                     key={t}
-                                    className="rounded-full bg-pink-500/10 px-3 py-1 border border-pink-500/30 text-pink-800"
+                                    className="rounded-full bg-white px-3 py-1 border border-pink-500/30 text-pink-800"
                                 >
                                     {t}
                                 </span>
@@ -90,10 +96,7 @@ export default async function ResearchCaseStudyLayout({
                     ) : null}
 
                     {techStack?.length ? (
-                        <div className="mt-4 space-y-1 text-[11px] md:text-xs text-neutral-800">
-                            <p className="font-semibold uppercase tracking-[0.22em] text-pink-700">
-                                Tech Stack
-                            </p>
+                        <div className="mt-4 space-y-1 text-[11px] md:text-xs text-neutral-700">
                             {techStack.map((row) => (
                                 <p key={row.label}>
                                     <span className="font-medium text-pink-700">
@@ -106,7 +109,6 @@ export default async function ResearchCaseStudyLayout({
                         </div>
                     ) : null}
                 </div>
-
                 <div>{heroVisual}</div>
             </section>
 

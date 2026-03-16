@@ -107,7 +107,13 @@ export default function UIUXResearch() {
                     <div className="flex flex-col gap-2 items-end text-right">
                         <p className="text-lg font-semibold">Food Storage</p>
                         <p className="text-sm text-neutral-500">
-                            A web application for food storage management.
+                            A web application for food storage management. It
+                            aims to improve effective communication and
+                            collaboration among household members in meal
+                            planning, organization, and grocery shopping,
+                            leading the researchers to focus the design problem
+                            on how to present information to motivate better
+                            collaboration in managing groceries.
                         </p>
                         <Button className="w-fit">
                             <Link href="/projects/food-storage">

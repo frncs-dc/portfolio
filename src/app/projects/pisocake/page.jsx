@@ -1,5 +1,5 @@
 import ResearchStudyLayout from "@/components/projects/ResearchCaseStudyLayout";
-
+import Image from "next/image";
 function HeroVisual() {
     return (
         <div className="relative h-52 md:h-64 lg:h-72 rounded-3xl border border-white/20 bg-gradient-to-br from-pink-500/30 via-purple-500/20 to-slate-900/80 shadow-[0_0_70px_rgba(236,72,153,0.45)] overflow-hidden">
@@ -57,7 +57,15 @@ export default function PisoCakePage() {
                 contactHref: "/#contact",
                 contactLabel: "View contact section",
             }}
-            heroVisual={<HeroVisual />}
+            heroVisual={
+                <Image
+                    src="/Projects/PisoCAKE/PisoCAKE-Phone-Mockup-Preview.webp"
+                    alt="PisoCAKE"
+                    width={300}
+                    height={300}
+                    className="rounded-2xl"
+                />
+            }
         />
     );
 }
