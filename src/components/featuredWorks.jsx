@@ -125,11 +125,14 @@ export default function FeaturedWorks() {
                     className="rounded-2xl"
                 />
                 <div className="flex flex-col gap-4">
-                    <h2 className="text-2xl font-bold">This Portfolio</h2>
+                    <h2 className="text-2xl font-bold">
+                        This Portfolio :{")"}
+                    </h2>
                     <p className="text-lg text-neutral-500">
-                        This portfolio is a collection of my work. It is a
-                        showcase of my skills and my work. It was built with
-                        Next.js and Tailwind CSS.
+                        This portfolio showcases a curated selection of my work,
+                        highlighting my skills in development and design. Built
+                        with Next.js and Tailwind CSS, it is crafted with
+                        performance and SEO best practices in mind.
                     </p>
                     <div className="flex flex-row gap-2">
                         {ThisPortfolioTechnologies.map((technology) => (
