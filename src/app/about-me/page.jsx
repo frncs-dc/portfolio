@@ -2,6 +2,7 @@ import {
     Breadcrumb,
     BreadcrumbItem,
     BreadcrumbLink,
+    BreadcrumbSeparator,
     BreadcrumbList,
 } from "@/components/ui/breadcrumb";
 import AboutMe from "@/components/aboutme";
@@ -14,6 +15,12 @@ export default function AboutMePage() {
                 <BreadcrumbList>
                     <BreadcrumbItem>
                         <BreadcrumbLink href="/">Home</BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                        <BreadcrumbLink href="/about-me">
+                            About Me
+                        </BreadcrumbLink>
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>

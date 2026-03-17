@@ -8,7 +8,7 @@ import {
 export default function ExperienceSection() {
     return (
         <section className="relative z-10 my-24 flex justify-center px-4 text-black">
-            <div className="flex w-full max-w-5xl flex-col gap-8">
+            <div className="flex w-full flex-col gap-8">
                 <div>
                     <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
                         Experience

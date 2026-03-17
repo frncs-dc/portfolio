@@ -3,10 +3,10 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 export default function AboutMe() {
     return (
         <section className="relative z-10 my-24 flex justify-center px-4 text-black">
-            <div className="flex w-full max-w-5xl flex-col gap-8">
+            <div className="flex w-full flex-col gap-8">
                 <div>
                     <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-                        About Me
+                        Background
                     </h2>
                     <p className="mt-2 max-w-2xl text-base">
                         A bit about my background, how I approach my work, and
@@ -14,8 +14,8 @@ export default function AboutMe() {
                     </p>
                 </div>
 
-                <Card className="shadow-sm border border-black/10">
-                    <CardHeader className="pb-3">
+                <Card className="glass-effect rounded-2xl border border-white/40 bg-white/5 p-6 shadow-sm">
+                    <CardHeader>
                         <CardTitle className="text-xl font-semibold">
                             Developer &amp; Designer
                         </CardTitle>
