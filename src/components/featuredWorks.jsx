@@ -19,6 +19,15 @@ export default function FeaturedWorks() {
         "thematic-analysis",
     ];
 
+    const ThisPortfolioTechnologies = [
+        "next.js",
+        "tailwindcss",
+        "framer-motion",
+        "lucide-react",
+        "shadcn/ui",
+        "vercel",
+    ];
+
     return (
         <section className="relative z-10 my-24 flex flex-col gap-4 justify-center">
             <div className="flex flex-row gap-4">
@@ -105,6 +114,34 @@ export default function FeaturedWorks() {
                     height={500}
                     className="rounded-2xl ml-auto"
                 />
+            </div>
+
+            <div className="flex flex-row gap-4">
+                <Image
+                    src="/Projects/Portfolio/Desktop_Portfolio.webp"
+                    alt="This Portfolio"
+                    width={400}
+                    height={500}
+                    className="rounded-2xl"
+                />
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-2xl font-bold">This Portfolio</h2>
+                    <p className="text-lg text-neutral-500">
+                        This portfolio is a collection of my work. It is a
+                        showcase of my skills and my work. It was built with
+                        Next.js and Tailwind CSS.
+                    </p>
+                    <div className="flex flex-row gap-2">
+                        {ThisPortfolioTechnologies.map((technology) => (
+                            <Button
+                                key={technology}
+                                className="rounded-2xl w-fit text-black border border-black bg-white/10 p-2 px-4"
+                            >
+                                {technology}
+                            </Button>
+                        ))}
+                    </div>
+                </div>
             </div>
         </section>
     );
