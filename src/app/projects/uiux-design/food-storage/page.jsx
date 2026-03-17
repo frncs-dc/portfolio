@@ -24,7 +24,7 @@ export default function FoodStorage() {
     ];
 
     return (
-        <section className="relative z-10 my-24 flex flex-col justify-center px-4">
+        <section className="relative z-10 my-24 flex flex-col justify-center px-20">
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -84,9 +84,9 @@ export default function FoodStorage() {
 
                 <div className="space-y-6">
                     {/* Row Item */}
-                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
-                        <div className="flex flex-col gap-2 justify-center">
+                        <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
                                 id="grocery-purchasing-priorities"
                                 className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
@@ -99,26 +99,28 @@ export default function FoodStorage() {
                         </div>
 
                         {/*Item Image*/}
-                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
                             <Image
                                 src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
                                 alt="Item"
                                 width={200}
                                 height={200}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                             <Image
                                 src="/Projects/Food Storage/Cart Family Cart/User View.png"
                                 alt="Item"
                                 width={200}
                                 height={100}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
                     </div>
 
                     {/* Row Item */}
-                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
-                        <div className="flex flex-col gap-2 justify-center">
+                        <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
                                 id="household-organization-storage"
                                 className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
@@ -132,26 +134,28 @@ export default function FoodStorage() {
                         </div>
 
                         {/*Item Image*/}
-                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
                             <Image
                                 src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
                                 alt="Item"
                                 width={200}
                                 height={200}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                             <Image
                                 src="/Projects/Food Storage/Storage/Fridge Storage Area - Gardenia Expanded.png"
                                 alt="Item"
                                 width={200}
                                 height={100}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
                     </div>
 
                     {/* Row Item */}
-                    <div className="flex flex-row gap-4 border border-gray-300 rounded-md p-4">
+                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
-                        <div className="flex flex-col gap-2 justify-center">
+                        <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
                                 id="household-prioritization-consumption"
                                 className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
@@ -164,18 +168,20 @@ export default function FoodStorage() {
                         </div>
 
                         {/*Item Image*/}
-                        <div className="flex flex-row gap-2 ml-auto border border-red-500 rounded-md p-4">
+                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
                             <Image
                                 src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
                                 alt="Item"
                                 width={200}
                                 height={200}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                             <Image
                                 src="/Projects/Food Storage/Prioritization/Chat Main.png"
                                 alt="Item"
                                 width={200}
                                 height={100}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
                     </div>
