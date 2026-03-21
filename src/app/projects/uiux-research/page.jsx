@@ -116,7 +116,7 @@ export default function UIUXResearch() {
                             collaboration in managing groceries.
                         </p>
                         <Button className="w-fit">
-                            <Link href="/projects/food-storage">
+                            <Link href="/projects/uiux-research/food-storage">
                                 View Project
                             </Link>
                         </Button>

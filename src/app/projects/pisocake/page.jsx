@@ -1,9 +1,9 @@
-import ResearchStudyLayout from "@/components/projects/ResearchCaseStudyLayout";
+import ResearchCaseStudyLayout from "@/components/projects/ResearchCaseStudyLayout";
 import Image from "next/image";
 
 export default function PisoCakePage() {
     return (
-        <ResearchStudyLayout
+        <ResearchCaseStudyLayout
             title="PisoCAKE"
             subtitle="Designing a financial management tool that balances discipline, convenience, and the unpredictability of everyday life."
             categoryLabel="UX Case Study"

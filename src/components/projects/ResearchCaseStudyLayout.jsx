@@ -82,10 +82,14 @@ export default async function ResearchCaseStudyLayout({
                 </BreadcrumbList>
             </Breadcrumb>
 
-            {/* hero */}
-            <section className="mt-8 mb-10 flex flex-row items-start">
-                <div>
-                    <p className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-pink-800">
+            {/* hero bento */}
+            <section className="mt-8 mb-10 grid gap-4 lg:grid-cols-12">
+                <div
+                    className={`rounded-3xl border border-white/70 bg-white/75 p-7 backdrop-blur-lg shadow-[0_14px_34px_rgba(236,72,153,0.16)] ${
+                        heroVisual ? "lg:col-span-6" : "lg:col-span-8"
+                    }`}
+                >
+                    <p className="inline-flex items-center gap-2 rounded-full border border-pink-200 bg-pink-50 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-pink-800">
                         {categoryLabel}
                         {categoryDetail ? (
                             <>
@@ -94,33 +98,46 @@ export default async function ResearchCaseStudyLayout({
                             </>
                         ) : null}
                     </p>
-                    <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-white">
+                    <h1 className="mt-4 text-4xl font-semibold tracking-tight text-neutral-900 md:text-5xl">
                         {title}
                     </h1>
                     {subtitle ? (
-                        <p className="mt-3 text-base md:text-lg max-w-2xl text-white">
+                        <p className="mt-3 max-w-2xl text-base text-neutral-700 md:text-lg">
                             {subtitle}
                         </p>
                     ) : null}
 
+                    
+                </div>
+
+                <div
+                    className={`rounded-3xl border border-white/70 bg-white/70 p-5 backdrop-blur-lg shadow-[0_14px_34px_rgba(236,72,153,0.14)] ${
+                        heroVisual ? "lg:col-span-3" : "lg:col-span-4"
+                    }`}
+                >
                     {tags?.length ? (
-                        <div className="mt-5 flex flex-wrap gap-2 text-[11px] md:text-xs">
-                            {tags.map((t) => (
-                                <span
-                                    key={t}
-                                    className="rounded-full bg-white px-3 py-1 border border-pink-500/30 text-pink-800"
-                                >
-                                    {t}
-                                </span>
-                            ))}
-                        </div>
+                        <>
+                            <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-neutral-700">
+                                Focus
+                            </p>
+                            <div className="mt-3 flex flex-wrap gap-2 text-[11px] md:text-xs">
+                                {tags.map((t) => (
+                                    <span
+                                        key={t}
+                                        className="rounded-full border border-pink-200 bg-pink-50 px-3 py-1 text-pink-800"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </>
                     ) : null}
 
                     {techStack?.length ? (
-                        <div className="mt-4 space-y-1 text-[11px] md:text-xs text-neutral-700">
+                        <div className="mt-4 space-y-1 text-[11px] text-neutral-700 md:text-xs">
                             {techStack.map((row) => (
                                 <p key={row.label}>
-                                    <span className="font-medium text-pink-700">
+                                    <span className="font-semibold text-pink-700">
                                         {row.label}
                                     </span>
                                     {": "}
@@ -130,7 +147,14 @@ export default async function ResearchCaseStudyLayout({
                         </div>
                     ) : null}
                 </div>
-                <div>{heroVisual}</div>
+
+                {heroVisual ? (
+                    <div className="rounded-3xl border border-white/70 bg-white/70 p-4 backdrop-blur-lg shadow-[0_14px_34px_rgba(236,72,153,0.14)] lg:col-span-3">
+                        <div className="flex h-full items-center justify-center">
+                            {heroVisual}
+                        </div>
+                    </div>
+                ) : null}
             </section>
 
             {/* sticky outline + markdown content + sticky contact sidebar */}
