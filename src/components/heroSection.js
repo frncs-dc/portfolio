@@ -19,9 +19,15 @@ export default function HeroSection() {
     return (
         <section
             className="relative z-10 text-left
-            flex flex-row gap-10 pt-20 items-stretch"
+            flex flex-col gap-10 pt-20 items-stretch
+            lg:flex-row
+            "
         >
-            <div className="flex-1 flex flex-col justify-between ">
+            <div
+                className="flex-1 flex flex-col justify-between
+            order-2 lg:order-1
+            "
+            >
                 <div className="flex flex-col gap-4">
                     <div className="text-foreground text-4xl font-bold">
                         I’m Frances, a developer and designer
@@ -33,7 +39,7 @@ export default function HeroSection() {
                 </div>
 
                 {/* important buttons here */}
-                <div className="flex flex-row gap-4">
+                <div className="flex flex-row gap-4 mt-4 lg:mt-0">
                     <Button
                         variant="default"
                         onClick={() =>
@@ -42,7 +48,9 @@ export default function HeroSection() {
                                 "_blank",
                             )
                         }
-                        className="transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105"
+                        className="transition-all duration-300 hover:shadow-lg 
+                        hover:shadow-pink-500/30 hover:scale-105
+                        w-fit"
                     >
                         LinkedIn
                         <ArrowRightIcon className="w-4 h-4" />
@@ -55,14 +63,18 @@ export default function HeroSection() {
                                 "_blank",
                             )
                         }
-                        className="transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105"
+                        className="transition-all duration-300 hover:shadow-lg 
+                        hover:shadow-pink-500/30 hover:scale-105
+                        w-fit"
                     >
                         Contact Me
                     </Button>
                     <Button
                         variant="default"
                         onClick={handleGithubClick}
-                        className="transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/30 hover:scale-105"
+                        className="transition-all duration-300 hover:shadow-lg 
+                        hover:shadow-pink-500/30 hover:scale-105
+                        w-fit"
                     >
                         Github
                     </Button>
@@ -70,7 +82,7 @@ export default function HeroSection() {
             </div>
 
             {/* Project Previews */}
-            <div className="flex-1 gap-4">
+            <div className="flex-1 gap-4 order-1 lg:order-2">
                 <ProjectSwiper />
             </div>
         </section>
