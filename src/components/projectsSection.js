@@ -29,7 +29,7 @@ export default function ProjectsSection() {
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
             {/* Project Category Spotlight Cards */}
-            <div className="flex flex-row gap-4 mb-4">
+            <div className="flex flex-col gap-4 mb-4 lg:flex-row">
                 <SpotlightCard
                     className="flex-1 text-white"
                     onClick={handleNavigate("/projects/uiux-research")}
@@ -167,7 +167,7 @@ export default function ProjectsSection() {
                 </SpotlightCard>
             </div>
 
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col gap-4 lg:flex-row">
                 <SpotlightCard
                     className="flex-1 text-white"
                     onClick={handleNavigate("/projects/website-management")}
