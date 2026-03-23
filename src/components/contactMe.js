@@ -5,7 +5,10 @@ import { Button } from "@/components/ui/button";
 
 export default function ContactMe() {
     return (
-        <section id="contact" className="relative z-10 py-16 flex flex-row">
+        <section
+            id="contact"
+            className="relative z-10 py-16 flex flex-col lg:flex-row"
+        >
             <div className="flex-1 flex flex-col gap-4">
                 <div className="text-4xl font-bold w-full">Contact Me</div>
                 <p className="text-lg text-neutral-500 mb-4">
@@ -57,7 +60,7 @@ export default function ContactMe() {
 
             <div
                 className="flex-1 max-w-2xl rounded-3xl 
-            bg-white/95 border border-neutral-200 shadow-sm p-6 md:p-10"
+            bg-white/95 border border-neutral-200 shadow-sm p-6 md:p-10 mt-4 lg:mt-0"
             >
                 <ContactForm />
             </div>
