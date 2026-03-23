@@ -30,20 +30,23 @@ export default function FeaturedWorks() {
 
     return (
         <section className="relative z-10 my-24 flex flex-col gap-4 justify-center">
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="flex flex-col gap-4">
                     <h1 className="text-4xl font-bold">Featured Works</h1>
                     <p className="text-lg text-neutral-500">
                         These are some of the projects I'm proud of.
                     </p>
                 </div>
-                <Button className="ml-auto mr-12 rounded-xl w-fit bg-white text-black border border-black p-2 px-4">
+                <Button
+                    className="lg:ml-auto lg:mr-12 rounded-xl w-fit 
+                bg-white text-black border border-black p-2 px-4"
+                >
                     <Link href="/projects">View All Projects</Link>
                     <ArrowRightIcon className="w-4 h-4" />
                 </Button>
             </div>
             {/* PisoCAKE Project */}
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col gap-4 lg:flex-row">
                 <Image
                     src="/Projects/PisoCAKE/PisoCAKE-Phone-Mockup-Preview.webp"
                     alt="PisoCAKE"
@@ -61,7 +64,7 @@ export default function FeaturedWorks() {
                         goal-setting support.
                     </p>
 
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         {PisoCAKETechnologies.map((technology) => (
                             <Button
                                 key={technology}
@@ -79,8 +82,8 @@ export default function FeaturedWorks() {
             </div>
 
             {/* Food Storage Project */}
-            <div className="flex flex-row gap-4">
-                <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 lg:flex-row">
+                <div className="flex flex-col gap-4 order-2 lg:order-1">
                     <h2 className="text-2xl font-bold mt-8">Food Storage</h2>
                     <p className="text-lg text-neutral-500">
                         A web application for food storage management. It aims
@@ -90,7 +93,7 @@ export default function FeaturedWorks() {
                         the design problem on how to present information to
                         motivate better collaboration in managing groceries.
                     </p>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         {FoodStorageTechnologies.map((technology) => (
                             <Button
                                 key={technology}
@@ -112,11 +115,11 @@ export default function FeaturedWorks() {
                     alt="Food Storage"
                     width={260}
                     height={500}
-                    className="rounded-2xl ml-auto"
+                    className="rounded-2xl ml-auto order-1 lg:order-2"
                 />
             </div>
 
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-col gap-4 lg:flex-row">
                 <Image
                     src="/Projects/Portfolio/Desktop_Portfolio.webp"
                     alt="This Portfolio"
@@ -134,7 +137,7 @@ export default function FeaturedWorks() {
                         with Next.js and Tailwind CSS, it is crafted with
                         performance and SEO best practices in mind.
                     </p>
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row flex-wrap gap-2">
                         {ThisPortfolioTechnologies.map((technology) => (
                             <Button
                                 key={technology}
