@@ -59,6 +59,12 @@ export const dynamic = "force-dynamic";
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <meta
+                    name="google-site-verification"
+                    content="1M-7uNNBKsFTvMrMcV7vR-lDzg9MxD4fVUXzEhbhrAw"
+                />
+            </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
