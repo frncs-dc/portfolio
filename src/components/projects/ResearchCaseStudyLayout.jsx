@@ -8,13 +8,14 @@ import {
     BreadcrumbList,
 } from "@/components/ui/breadcrumb";
 import ContactForm from "@/components/ContactForm";
+import { Button } from "@/components/ui/button";
+import { FaGithub } from "react-icons/fa";
 
 function extractOutlineFromHtml(html) {
     if (!html) return [];
 
     const headings = [];
-    const re =
-        /<h([23])\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g;
+    const re = /<h([23])\s+id="([^"]+)"[^>]*>([\s\S]*?)<\/h\1>/g;
 
     for (const match of html.matchAll(re)) {
         const level = Number(match[1]);
@@ -45,6 +46,7 @@ export default async function ResearchCaseStudyLayout({
         contactLabel: "View contact section",
     },
     heroVisual,
+    githubHref,
 }) {
     const html = markdownSlug ? await getProjectHtml(markdownSlug) : "";
     const outlineItems = extractOutlineFromHtml(html);
@@ -107,7 +109,25 @@ export default async function ResearchCaseStudyLayout({
                         </p>
                     ) : null}
 
-                    
+                    {githubHref ? (
+                        <div className="mt-4">
+                            <Button
+                                variant="outline"
+                                size="sm"
+                                asChild
+                                className="rounded-xl border-pink-200 bg-white/80 text-pink-800 shadow-sm hover:bg-pink-50"
+                            >
+                                <a
+                                    href={githubHref}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <FaGithub />
+                                    GitHub
+                                </a>
+                            </Button>
+                        </div>
+                    ) : null}
                 </div>
 
                 <div
@@ -171,9 +191,7 @@ export default async function ResearchCaseStudyLayout({
                                         <li
                                             key={item.id}
                                             className={
-                                                item.level === 3
-                                                    ? "pl-3"
-                                                    : ""
+                                                item.level === 3 ? "pl-3" : ""
                                             }
                                         >
                                             <a

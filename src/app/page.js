@@ -25,7 +25,7 @@ export default function Home() {
                 {/* Your Content/Components */}
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
-                    <FeaturedWorks />
+                    <FeaturedWorks showHeader />
                     <p className="text-lg text-neutral-500 mb-4">
                         Or check out the
                     </p>

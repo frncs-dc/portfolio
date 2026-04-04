@@ -129,7 +129,7 @@ export default function ProjectsSection() {
                     { label: "PisoCAKE", href: "/projects/pisocake" },
                     {
                         label: "Food 360: A Food Storage Management System",
-                        href: "/projects/uiux-research/food-storage",
+                        href: "/projects/uiux-research/food-storage-research",
                     },
                 ],
             },
@@ -142,7 +142,11 @@ export default function ProjectsSection() {
                 projects: [
                     {
                         label: "Food 360: A Food Storage Management System",
-                        href: "/projects/uiux-design/food-storage",
+                        href: "/projects/uiux-design/food-storage-design",
+                    },
+                    {
+                        label: "PisoCAKE: A Financial Goal Management PWA",
+                        href: "/projects/pisocake",
                     },
                 ],
             },
@@ -233,25 +237,48 @@ export default function ProjectsSection() {
                     },
                     {
                         label: "Motorcycle Parts Inventory System",
-                        href: "/projects/inventory-system",
+                        href: "https://github.com/briangabini/CSSWENG-IMS",
                     },
-                    { label: "Spotfinder", href: "/projects/spotfinder" },
                     {
-                        label: "TellTail Tasks",
-                        href: "/projects/telltail-tasks",
+                        label: "Spotfinder",
+                        href: "https://github.com/frncs-dc/SpotFinder",
+                    },
+                    {
+                        label: "TellTail Tasks: An Interactive To Do List",
+                        href: "https://github.com/frncs-dc/telltail-tasks",
                     },
                 ],
             },
             {
                 id: "web-application",
-                title: "Web Application",
+                title: "Web Applications",
                 description:
                     "See how I design and develop web applications using data-driven decisions.",
                 icon: CodeXml,
                 projects: [
                     {
-                        label: "Web Development",
-                        href: "/projects/web-development",
+                        label: "This Portfolio",
+                        href: "https://github.com/frncs-dc/portfolio",
+                    },
+                    {
+                        label: "PisoCAKE",
+                        href: "/projects/pisocake",
+                    },
+                    {
+                        label: "Motorcycle Parts Inventory System",
+                        href: "https://github.com/briangabini/CSSWENG-IMS",
+                    },
+                    {
+                        label: "My Wander Diary: A Travel Journal Mobile App",
+                        href: "https://github.com/frncs-dc/MyWanderDiary",
+                    },
+                    {
+                        label: "Spotfinder",
+                        href: "https://github.com/frncs-dc/SpotFinder",
+                    },
+                    {
+                        label: "TellTail Tasks: An Interactive To Do List",
+                        href: "https://github.com/frncs-dc/telltail-tasks",
                     },
                 ],
             },

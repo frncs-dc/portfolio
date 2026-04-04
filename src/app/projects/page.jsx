@@ -1,4 +1,5 @@
 import ProjectsSection from "@/components/projectsSection";
+import FeaturedWorks from "@/components/featuredWorks";
 
 export default function ProjectsPage() {
     return (
@@ -9,7 +10,13 @@ export default function ProjectsPage() {
             </p>
             <hr className="w-full border-1/2 border-black" />
             {/* Featured Projects Section */}
-            <ProjectsSection />
+            <FeaturedWorks />
+            <h2 className="text-3xl font-bold mb-4">All Projects</h2>
+            <p className="text-lg text-neutral-500 mb-4">
+                See all the projects I've worked on.
+            </p>
+            <hr className="w-full border-1/2 border-black" />
+            <ProjectsSection className="mt-12" />
         </div>
     );
 }

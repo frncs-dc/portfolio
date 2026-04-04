@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
-export default function FeaturedWorks() {
+export default function FeaturedWorks({ showHeader = false }) {
     const PisoCAKETechnologies = [
         "figma",
         "next.js",
@@ -37,14 +37,17 @@ export default function FeaturedWorks() {
                         These are some of the projects I'm proud of.
                     </p>
                 </div>
-                <Button
-                    className="lg:ml-auto lg:mr-12 rounded-xl w-fit 
+                {showHeader && (
+                    <Button
+                        className="lg:ml-auto lg:mr-12 rounded-xl w-fit 
                 bg-white text-black border border-black p-2 px-4"
-                >
-                    <Link href="/projects">View All Projects</Link>
-                    <ArrowRightIcon className="w-4 h-4" />
-                </Button>
+                    >
+                        <Link href="/projects">View All Projects</Link>
+                        <ArrowRightIcon className="w-4 h-4" />
+                    </Button>
+                )}
             </div>
+
             {/* PisoCAKE Project */}
             <div className="flex flex-col gap-4 lg:flex-row">
                 <Image
