@@ -9,7 +9,6 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
-import { ChevronDownIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 const navItems = [
@@ -24,24 +23,6 @@ const navItems = [
     {
         label: "Projects",
         href: "/projects",
-        children: [
-            {
-                label: "UI/UX Research",
-                href: "/projects/uiux-research",
-            },
-            {
-                label: "UI/UX Design",
-                href: "/projects/uiux-design",
-            },
-            {
-                label: "Web Development",
-                href: "/projects/web-development",
-            },
-            {
-                label: "UI/UX Prototyping & AI-Assisted Development",
-                href: "/projects/prototyping-with-ai",
-            },
-        ],
     },
     {
         label: "Contact",

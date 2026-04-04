@@ -52,7 +52,7 @@ export default function sitemap() {
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/projects/prototyping-with-ai`,
+            url: `${baseUrl}/projects/ai-development`,
             lastModified,
             changeFrequency: "monthly",
             priority: 0.8,

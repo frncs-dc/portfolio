@@ -93,8 +93,18 @@ export default function FoodStorage() {
                             >
                                 1. Grocery Purchasing Priorities
                             </h2>
+                            {/*#TODO: add a link to the factors */}
                             <p className="text-sm text-gray-500">
-                                This is a description of the item.
+                                Participants reported considering several
+                                factors when deciding what food items to buy,
+                                including. These factors shaped purchasing
+                                decisions and could indirectly influence the
+                                likelihood of food waste.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                presenting the needs and wants of each household
+                                member to encourage better collaboration in
+                                managing groceries.
                             </p>
                         </div>
 
@@ -129,7 +139,17 @@ export default function FoodStorage() {
                                 Items
                             </h2>
                             <p className="text-sm text-gray-500">
-                                This is a description of the item.
+                                Most participants organized groceries by
+                                category (e.g., vegetables, frozen goods, canned
+                                items), making them easier to find and keeping
+                                storage spaces orderly. Some also prioritized
+                                using older stock before newer items to reduce
+                                waste, though this required consistent effort
+                                and coordination within the household.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                centralizing current stock to make it easier to
+                                find and use.
                             </p>
                         </div>
 
@@ -163,7 +183,15 @@ export default function FoodStorage() {
                                 3. Household Prioritization of Food Consumption
                             </h2>
                             <p className="text-sm text-gray-500">
-                                This is a description of the item.
+                                Participants also reported forgetting about
+                                stored items leading to food waste.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                presenting the items in the home page to make it
+                                easier to remember and use. Moreover, household
+                                members can also communicate with each other and
+                                bring up the items that are about to expire and
+                                other issues related to the groceries.
                             </p>
                         </div>
 

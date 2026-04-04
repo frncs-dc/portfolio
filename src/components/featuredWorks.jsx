@@ -52,7 +52,7 @@ export default function FeaturedWorks() {
                     alt="PisoCAKE"
                     width={260}
                     height={500}
-                    className="rounded-2xl "
+                    className="rounded-2xl hover:scale-110 transition-all duration-300"
                 />
                 <div className="flex flex-col gap-4 h-full">
                     <h2 className="text-2xl font-bold mt-8">PisoCAKE</h2>
@@ -115,7 +115,8 @@ export default function FeaturedWorks() {
                     alt="Food Storage"
                     width={260}
                     height={500}
-                    className="rounded-2xl ml-auto order-1 lg:order-2"
+                    className="rounded-2xl ml-auto order-1 lg:order-2
+                                hover:scale-110 transition-all duration-300"
                 />
             </div>
 
@@ -125,7 +126,7 @@ export default function FeaturedWorks() {
                     alt="This Portfolio"
                     width={400}
                     height={500}
-                    className="rounded-2xl"
+                    className="rounded-2xl hover:scale-110 transition-all duration-300"
                 />
                 <div className="flex flex-col gap-4">
                     <h2 className="text-2xl font-bold">

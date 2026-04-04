@@ -49,7 +49,7 @@ export default function UIUXDesign() {
             <div className="flex flex-col gap-8">
                 {/* project row */}
                 <div
-                    className="relative flex flex-row-reverse items-center gap-4 px-20"
+                    className="relative flex items-center gap-4 px-20"
                     id="food-storage-container"
                 >
                     <Image
@@ -62,7 +62,7 @@ export default function UIUXDesign() {
                             router.push("/projects/uiux-design/food-storage");
                         }}
                     />
-                    <div className="flex flex-col gap-2 items-end text-right">
+                    <div className="flex flex-col gap-2 ml-4 items-start text-left">
                         <p className="text-lg font-semibold">Food Storage</p>
                         <p className="text-sm text-neutral-500">
                             A user-centered design for a food storage
