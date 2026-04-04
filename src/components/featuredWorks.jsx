@@ -123,7 +123,7 @@ export default function FeaturedWorks({ showHeader = false }) {
                             <ArrowRightIcon className="w-4 h-4" />
                         </Button>
                         <Button className="rounded-2xl w-fit">
-                            <Link href="/projects/uiux-research/food-storage-research">
+                            <Link href="/projects/food-storage-research">
                                 View Research
                             </Link>
                         </Button>

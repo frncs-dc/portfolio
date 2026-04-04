@@ -24,7 +24,7 @@ export default function FoodStorage() {
     ];
 
     return (
-        <section className="relative z-10 my-24 flex flex-col justify-center px-20">
+        <section className="relative z-10 my-24 flex flex-col justify-center lg:px-20 px-10">
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -50,8 +50,8 @@ export default function FoodStorage() {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-            <h1 className="text-4xl font-bold">Food Storage</h1>
-            <p className="text-lg text-gray-500">
+            <h1 className="text-4xl font-bold mt-4">Food Storage</h1>
+            <p className="text-lg text-gray-500 mt-4">
                 It aims to improve effective communication and collaboration
                 among household members in meal planning, organization, and
                 grocery shopping, leading the researchers to focus the design
@@ -84,7 +84,31 @@ export default function FoodStorage() {
 
                 <div className="space-y-6">
                     {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
+                        {/*Item Image*/}
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
+                            <Image
+                                src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
+                                alt="Item"
+                                width={200}
+                                height={200}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
+                            />
+                            <Image
+                                src="/Projects/Food Storage/Cart Family Cart/User View.png"
+                                alt="Item"
+                                width={200}
+                                height={100}
+                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
+                            />
+                        </div>
+
                         {/*Item Description*/}
                         <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
@@ -107,28 +131,33 @@ export default function FoodStorage() {
                                 managing groceries.
                             </p>
                         </div>
+                    </div>
 
+                    {/* Row Item */}
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
                         {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
                             <Image
-                                src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
+                                src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
                                 alt="Item"
                                 width={200}
                                 height={200}
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                             <Image
-                                src="/Projects/Food Storage/Cart Family Cart/User View.png"
+                                src="/Projects/Food Storage/Storage/Fridge Storage Area - Gardenia Expanded.png"
                                 alt="Item"
                                 width={200}
                                 height={100}
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
-                    </div>
-
-                    {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
                         <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
@@ -152,28 +181,33 @@ export default function FoodStorage() {
                                 find and use.
                             </p>
                         </div>
+                    </div>
 
+                    {/* Row Item */}
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
                         {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
                             <Image
-                                src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
+                                src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
                                 alt="Item"
                                 width={200}
                                 height={200}
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                             <Image
-                                src="/Projects/Food Storage/Storage/Fridge Storage Area - Gardenia Expanded.png"
+                                src="/Projects/Food Storage/Prioritization/Chat Main.png"
                                 alt="Item"
                                 width={200}
                                 height={100}
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
-                    </div>
-
-                    {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
                         <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
@@ -193,24 +227,6 @@ export default function FoodStorage() {
                                 bring up the items that are about to expire and
                                 other issues related to the groceries.
                             </p>
-                        </div>
-
-                        {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
-                            <Image
-                                src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
-                                alt="Item"
-                                width={200}
-                                height={200}
-                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
-                            />
-                            <Image
-                                src="/Projects/Food Storage/Prioritization/Chat Main.png"
-                                alt="Item"
-                                width={200}
-                                height={100}
-                                className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
-                            />
                         </div>
                     </div>
                 </div>
