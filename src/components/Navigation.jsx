@@ -9,6 +9,8 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import Image from "next/image";
+import { ChevronDownIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
 const navItems = [
@@ -35,13 +37,17 @@ export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileExpandedHref, setMobileExpandedHref] = useState(null);
 
-    const headerClassName = useMemo(() => {
+    const desktopHeaderClassName = useMemo(() => {
         return `transition-colors duration-200 ${
             isScrolled
                 ? "bg-background/70 backdrop-blur-sm border-b border-border"
                 : "bg-transparent"
         }`;
     }, [isScrolled]);
+
+    // Mobile: always keep a solid bar so links/logo stay visible over page content.
+    const mobileHeaderClassName =
+        "bg-background/95 backdrop-blur-md border-b border-border shadow-sm";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -89,7 +95,7 @@ export default function Navigation() {
             <div className="hidden md:block">
                 <NavigationMenu
                     viewport={false}
-                    className={`flex fixed top-0 left-0 right-0 z-50 px-12 w-screen max-w-none ${headerClassName}`}
+                    className={`flex fixed top-0 left-0 right-0 z-50 px-12 w-screen max-w-none ${desktopHeaderClassName}`}
                 >
                     <NavigationMenuList>
                         {navItems.map((item) => (
@@ -97,7 +103,9 @@ export default function Navigation() {
                                 {item.children ? (
                                     <>
                                         <NavigationMenuTrigger>
-                                            <Link href={item.href}>{item.label}</Link>
+                                            <Link href={item.href}>
+                                                {item.label}
+                                            </Link>
                                         </NavigationMenuTrigger>
                                         <NavigationMenuContent>
                                             {item.children.map((child) => (
@@ -117,7 +125,10 @@ export default function Navigation() {
                                     </>
                                 ) : (
                                     <NavigationMenuLink asChild>
-                                        <Link href={item.href} className="font-medium">
+                                        <Link
+                                            href={item.href}
+                                            className="font-medium"
+                                        >
                                             {item.label}
                                         </Link>
                                     </NavigationMenuLink>
@@ -130,12 +141,23 @@ export default function Navigation() {
 
             {/* Mobile navigation */}
             <div
-                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${headerClassName}`}
+                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${mobileHeaderClassName}`}
                 style={{ height: 56 }}
             >
                 <div className="flex h-full items-center justify-between px-4">
-                    <Link href="/" className="font-semibold">
-                        Home
+                    <Link
+                        href="/"
+                        className="flex shrink-0 items-center"
+                        aria-label="Home"
+                    >
+                        <Image
+                            src="/favicon_io/android-chrome-512x512.png"
+                            alt=""
+                            width={36}
+                            height={36}
+                            className="h-9 w-9 object-contain"
+                            priority
+                        />
                     </Link>
 
                     <button
@@ -178,7 +200,8 @@ export default function Navigation() {
                             <nav className="flex flex-col p-2">
                                 {navItems.map((item) => {
                                     const hasChildren = Boolean(item.children);
-                                    const isExpanded = mobileExpandedHref === item.href;
+                                    const isExpanded =
+                                        mobileExpandedHref === item.href;
 
                                     return (
                                         <div key={item.href} className="w-full">
@@ -187,10 +210,16 @@ export default function Navigation() {
                                                     <button
                                                         type="button"
                                                         className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left hover:bg-[#ffb6c1]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb6c1]/50"
-                                                        aria-expanded={isExpanded}
+                                                        aria-expanded={
+                                                            isExpanded
+                                                        }
                                                         onClick={() => {
-                                                            setMobileExpandedHref((prev) =>
-                                                                prev === item.href ? null : item.href,
+                                                            setMobileExpandedHref(
+                                                                (prev) =>
+                                                                    prev ===
+                                                                    item.href
+                                                                        ? null
+                                                                        : item.href,
                                                             );
                                                         }}
                                                     >
@@ -199,7 +228,9 @@ export default function Navigation() {
                                                         </span>
                                                         <ChevronDownIcon
                                                             className={`size-4 transition-transform duration-200 ${
-                                                                isExpanded ? "rotate-180" : ""
+                                                                isExpanded
+                                                                    ? "rotate-180"
+                                                                    : ""
                                                             }`}
                                                             aria-hidden="true"
                                                         />
@@ -207,19 +238,31 @@ export default function Navigation() {
 
                                                     {isExpanded && (
                                                         <div className="flex flex-col gap-1 px-2 pb-2">
-                                                            {item.children.map((child) => (
-                                                                <Link
-                                                                    key={child.href}
-                                                                    href={child.href}
-                                                                    className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-[#ffb6c1]/20"
-                                                                    onClick={() => {
-                                                                        setMobileMenuOpen(false);
-                                                                        setMobileExpandedHref(null);
-                                                                    }}
-                                                                >
-                                                                    {child.label}
-                                                                </Link>
-                                                            ))}
+                                                            {item.children.map(
+                                                                (child) => (
+                                                                    <Link
+                                                                        key={
+                                                                            child.href
+                                                                        }
+                                                                        href={
+                                                                            child.href
+                                                                        }
+                                                                        className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-[#ffb6c1]/20"
+                                                                        onClick={() => {
+                                                                            setMobileMenuOpen(
+                                                                                false,
+                                                                            );
+                                                                            setMobileExpandedHref(
+                                                                                null,
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            child.label
+                                                                        }
+                                                                    </Link>
+                                                                ),
+                                                            )}
                                                         </div>
                                                     )}
                                                 </>
@@ -228,8 +271,12 @@ export default function Navigation() {
                                                     href={item.href}
                                                     className="block rounded-lg px-3 py-2 font-medium hover:bg-[#ffb6c1]/20"
                                                     onClick={() => {
-                                                        setMobileMenuOpen(false);
-                                                        setMobileExpandedHref(null);
+                                                        setMobileMenuOpen(
+                                                            false,
+                                                        );
+                                                        setMobileExpandedHref(
+                                                            null,
+                                                        );
                                                     }}
                                                 >
                                                     {item.label}
