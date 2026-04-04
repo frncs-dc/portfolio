@@ -29,7 +29,7 @@ export default function FeaturedWorks({ showHeader = false }) {
     ];
 
     return (
-        <section className="relative z-10 my-24 flex flex-col gap-4 justify-center">
+        <section className="relative z-10 lg:my-24 my-12 flex flex-col gap-4 justify-center">
             <div className="flex flex-col gap-4 lg:flex-row">
                 <div className="flex flex-col gap-4">
                     <h1 className="text-4xl font-bold">Featured Works</h1>
