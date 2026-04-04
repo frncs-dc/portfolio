@@ -64,6 +64,12 @@ export default function RootLayout({ children }) {
                     name="google-site-verification"
                     content="1M-7uNNBKsFTvMrMcV7vR-lDzg9MxD4fVUXzEhbhrAw"
                 />
+                <link rel="icon" href="/favicon_io/favicon.ico" />
+                <link
+                    rel="apple-touch-icon"
+                    href="/favicon_io/apple-touch-icon.png"
+                />
+                <link rel="manifest" href="/favicon_io/site.webmanifest" />
             </head>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
