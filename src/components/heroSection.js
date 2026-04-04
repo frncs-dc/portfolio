@@ -19,7 +19,7 @@ export default function HeroSection() {
     return (
         <section
             className="relative z-10 text-left
-            flex flex-col gap-10 pt-20 items-stretch
+            flex flex-col gap-10 lg:pt-40 pt-20 items-stretch
             lg:flex-row
             "
         >
