@@ -6,6 +6,7 @@ export default function PisoCakePage() {
         <ResearchCaseStudyLayout
             title="PisoCAKE"
             subtitle="Designing a financial management tool that balances discipline, convenience, and the unpredictability of everyday life."
+            githubHref="https://github.com/CarlMatthewVerano/THS-ST-PisoCAKE"
             categoryLabel="UX Case Study"
             categoryDetail="Financial Management"
             tags={["UX Research", "Interaction Design", "Financial Tools"]}

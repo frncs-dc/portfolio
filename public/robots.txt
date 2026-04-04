@@ -1,0 +1,6 @@
+# Allow all other crawlers full access
+User-agent: *
+Allow: /
+
+# Specify sitemap location
+Sitemap: https://portfolio-frances-delacruz.vercel.app/sitemap.xml

@@ -1,292 +1,354 @@
 "use client";
 
 import SpotlightCard from "@/components/SpotlightCard";
-import {
-    ArrowRightIcon,
-    Bot,
-    Code,
-    CodeXml,
-    Database,
-    PanelTop,
-    PenTool,
-} from "lucide-react";
-import ProjCategoryButton from "@/components/button";
-import { useRouter } from "next/navigation";
+import { Bot, CodeXml, Database, PanelTop, PenTool, X } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+/**
+ * Each category can open a modal with any combination of:
+ * - `modalContent` — optional custom JSX (copy, layout, embedded media, etc.)
+ * - `projects` — optional list of links (omit or use [] when there are no links)
+ */
+function CategoryModal({ category, onClose }) {
+    useEffect(() => {
+        const onKeyDown = (e) => {
+            if (e.key === "Escape") onClose();
+        };
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [onClose]);
+
+    useEffect(() => {
+        const prev = document.body.style.overflow;
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = prev;
+        };
+    }, []);
+
+    if (!category) return null;
+
+    const Icon = category.icon;
+    const projects = category.projects ?? [];
+    const hasLinks = projects.length > 0;
+    const hasCustom = Boolean(category.modalContent);
+
+    return (
+        <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="category-modal-title"
+        >
+            <button
+                type="button"
+                className="absolute inset-0 bg-black/60"
+                aria-label="Close dialog"
+                onClick={onClose}
+            />
+            <div
+                className="relative z-10 w-full max-w-md rounded-2xl border border-neutral-700 bg-neutral-900 p-6 text-white shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+            >
+                <div className="flex items-start justify-between gap-4">
+                    <div className="flex items-center gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
+                            <Icon className="h-6 w-6" aria-hidden />
+                        </div>
+                        <h2
+                            id="category-modal-title"
+                            className="text-lg font-semibold leading-tight"
+                        >
+                            {category.title}
+                        </h2>
+                    </div>
+                    <button
+                        type="button"
+                        className="rounded-lg p-2 text-neutral-400 transition-colors hover:bg-white/10 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb6c1]/50"
+                        aria-label="Close"
+                        onClick={onClose}
+                    >
+                        <X className="h-5 w-5" />
+                    </button>
+                </div>
+
+                {hasCustom && (
+                    <div className="mt-4 text-sm text-neutral-300 [&_a]:text-[#ffb6c1] [&_a]:underline [&_a]:underline-offset-2">
+                        {category.modalContent}
+                    </div>
+                )}
+
+                {hasLinks && (
+                    <>
+                        <p
+                            className={`text-sm text-neutral-400 ${
+                                hasCustom ? "mt-6" : "mt-4"
+                            }`}
+                        >
+                            Related projects
+                        </p>
+                        <ul className="mt-3 flex flex-col gap-1">
+                            {projects.map((project) => (
+                                <li key={project.href}>
+                                    <Link
+                                        href={project.href}
+                                        className="block rounded-lg px-3 py-2.5 text-sm font-medium text-neutral-200 transition-colors hover:bg-[#ffb6c1]/20 hover:text-white"
+                                        onClick={onClose}
+                                    >
+                                        {project.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </>
+                )}
+
+                {!hasCustom && !hasLinks && (
+                    <p className="mt-4 text-sm text-neutral-500">
+                        No details added for this category yet.
+                    </p>
+                )}
+            </div>
+        </div>
+    );
+}
 
 export default function ProjectsSection() {
-    const router = useRouter();
-    const [loadingPath, setLoadingPath] = useState(null);
+    const [openId, setOpenId] = useState(null);
 
-    const handleNavigate = (href) => (event) => {
-        event.preventDefault();
-        if (loadingPath) return;
-        setLoadingPath(href);
-        router.push(href);
-    };
+    const categories = useMemo(
+        () => [
+            {
+                id: "uiux-research",
+                title: "UI/UX Research",
+                description:
+                    "See how I conduct research to understand user needs and behaviors.",
+                icon: PenTool,
+                projects: [
+                    { label: "PisoCAKE", href: "/projects/pisocake" },
+                    {
+                        label: "Food 360: A Food Storage Management System",
+                        href: "/projects/uiux-research/food-storage-research",
+                    },
+                ],
+            },
+            {
+                id: "uiux-design",
+                title: "UI/UX Design",
+                description:
+                    "See how I conduct research to understand user needs and behaviors.",
+                icon: PenTool,
+                projects: [
+                    {
+                        label: "Food 360: A Food Storage Management System",
+                        href: "/projects/uiux-design/food-storage-design",
+                    },
+                    {
+                        label: "PisoCAKE: A Financial Goal Management PWA",
+                        href: "/projects/pisocake",
+                    },
+                ],
+            },
+            {
+                id: "prototyping-ai",
+                title: "AI-Assisted Development",
+                description:
+                    " Prototyping through delivery: I use AI-assisted workflows to speed up exploration and implementation—always anchored in usability and clear requirements.",
+                icon: Bot,
+                modalContent: (
+                    <div>
+                        <p>
+                            Leveraging AI to speed up exploration and
+                            implementation while still manually checking the
+                            code for accuracy and usability.
+                        </p>
+                        <div className="text-sm text-neutral-400 mt-2">
+                            Some of the tools I use:
+                        </div>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                Cursor
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                ChatGPT
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                Claude
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                GitHub Copilot
+                            </span>
+                        </div>
+                    </div>
+                ),
+                projects: [],
+            },
+            {
+                id: "website-management",
+                title: "Website Management & SEO",
+                description:
+                    "See how I collaborate with SEO and marketing teams to build and manage high-performing WordPress websites.",
+                icon: PanelTop,
+                modalContent: (
+                    <div>
+                        <p>
+                            WordPress-focused delivery with marketing and SEO:
+                            site structure, performance, content workflows, and
+                            ongoing collaboration so pages stay fast,
+                            accessible, and discoverable.
+                        </p>
+                        <div className="text-sm text-neutral-400 mt-2">
+                            Some of the tools I use:
+                        </div>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                WordPress
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                TruConversion
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                PostHog
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                BeaverBuilder
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                Elementor
+                            </span>
+                            <span className="px-2 py-1 bg-white/10 rounded-md">
+                                Semrush
+                            </span>
+                        </div>
+                    </div>
+                ),
+            },
+            {
+                id: "full-stack",
+                title: "Full Stack",
+                description:
+                    "See how I design and develop full-stack applications using data-driven decisions.",
+                icon: Database,
+                projects: [
+                    {
+                        label: "PisoCAKE",
+                        href: "/projects/pisocake",
+                    },
+                    {
+                        label: "Motorcycle Parts Inventory System",
+                        href: "https://github.com/briangabini/CSSWENG-IMS",
+                    },
+                    {
+                        label: "Spotfinder",
+                        href: "https://github.com/frncs-dc/SpotFinder",
+                    },
+                    {
+                        label: "TellTail Tasks: An Interactive To Do List",
+                        href: "https://github.com/frncs-dc/telltail-tasks",
+                    },
+                ],
+            },
+            {
+                id: "web-application",
+                title: "Web Applications",
+                description:
+                    "See how I design and develop web applications using data-driven decisions.",
+                icon: CodeXml,
+                projects: [
+                    {
+                        label: "This Portfolio",
+                        href: "https://github.com/frncs-dc/portfolio",
+                    },
+                    {
+                        label: "PisoCAKE",
+                        href: "/projects/pisocake",
+                    },
+                    {
+                        label: "Motorcycle Parts Inventory System",
+                        href: "https://github.com/briangabini/CSSWENG-IMS",
+                    },
+                    {
+                        label: "My Wander Diary: A Travel Journal Mobile App",
+                        href: "https://github.com/frncs-dc/MyWanderDiary",
+                    },
+                    {
+                        label: "Spotfinder",
+                        href: "https://github.com/frncs-dc/SpotFinder",
+                    },
+                    {
+                        label: "TellTail Tasks: An Interactive To Do List",
+                        href: "https://github.com/frncs-dc/telltail-tasks",
+                    },
+                ],
+            },
+        ],
+        [],
+    );
+
+    const openCategory = categories.find((c) => c.id === openId) ?? null;
+
+    const handleClose = useCallback(() => setOpenId(null), []);
 
     return (
         <section className="relative z-10 min-h-screen flex flex-col py-12">
-            {/* Project Category Spotlight Cards */}
             <div className="flex flex-col gap-4 mb-4 lg:flex-row">
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/uiux-research")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        {/* frosted background for the icon */}
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
+                {categories.slice(0, 3).map((cat) => {
+                    const Icon = cat.icon;
+                    return (
+                        <SpotlightCard
+                            key={cat.id}
+                            className="flex-1 text-white"
+                            onClick={() => setOpenId(cat.id)}
+                        >
+                            <div className="flex flex-col gap-4 h-full">
+                                <div
+                                    className="bg-white/10 p-2 rounded-xl
                     w-12 h-12
                     flex items-center justify-center"
-                        >
-                            <PenTool className="w-6 h-6" />
-                        </div>
-                        <p>UI/UX Research</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I conduct research to understand user needs
-                            and behaviors.
-                        </p>
-                        <ProjCategoryButton asChild className="mt-auto">
-                            <Link
-                                href="/projects/uiux-research"
-                                onClick={handleNavigate(
-                                    "/projects/uiux-research",
-                                )}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/uiux-research"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath === "/projects/uiux-research"
-                                }
-                            >
-                                {loadingPath === "/projects/uiux-research" ? (
-                                    "Loading..."
-                                ) : (
-                                    <>
-                                        View Projects
-                                        <ArrowRightIcon className="w-4 h-4" />
-                                    </>
-                                )}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
-
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/uiux-design")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        {/* frosted background for the icon */}
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
-                    w-12 h-12
-                    flex items-center justify-center"
-                        >
-                            <PenTool className="w-6 h-6" />
-                        </div>
-                        <p>UI/UX Design</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I conduct research to understand user needs
-                            and behaviors.
-                        </p>
-                        <ProjCategoryButton asChild className="mt-auto">
-                            <Link
-                                href="/projects/uiux-design"
-                                onClick={handleNavigate(
-                                    "/projects/uiux-design",
-                                )}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/uiux-design"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath === "/projects/uiux-design"
-                                }
-                            >
-                                {loadingPath === "/projects/uiux-design" ? (
-                                    "Loading..."
-                                ) : (
-                                    <>
-                                        View Projects
-                                        <ArrowRightIcon className="w-4 h-4" />
-                                    </>
-                                )}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
-
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/prototyping-with-ai")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
-                    w-12 h-12
-                    flex items-center justify-center"
-                        >
-                            <Bot className="w-6 h-6" />
-                        </div>
-                        <p>UI/UX Prototyping & AI-Assisted Development</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I translate business requirements into
-                            user-centered prototypes and leverage AI tools to
-                            design and develop intuitive mobile and desktop
-                            applications.
-                        </p>
-                        <ProjCategoryButton className="mt-auto">
-                            <Link
-                                href="/projects/prototyping-with-ai"
-                                onClick={handleNavigate(
-                                    "/projects/prototyping-with-ai",
-                                )}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath ===
-                                    "/projects/prototyping-with-ai"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath ===
-                                    "/projects/prototyping-with-ai"
-                                }
-                            >
-                                {loadingPath === "/projects/prototyping-with-ai"
-                                    ? "Loading..."
-                                    : "View Projects"}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
+                                >
+                                    <Icon className="w-6 h-6" />
+                                </div>
+                                <p>{cat.title}</p>
+                                <p className="text-sm text-neutral-200 flex-1">
+                                    {cat.description}
+                                </p>
+                            </div>
+                        </SpotlightCard>
+                    );
+                })}
             </div>
 
             <div className="flex flex-col gap-4 lg:flex-row">
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/website-management")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
+                {categories.slice(3, 6).map((cat) => {
+                    const Icon = cat.icon;
+                    return (
+                        <SpotlightCard
+                            key={cat.id}
+                            className="flex-1 text-white"
+                            onClick={() => setOpenId(cat.id)}
+                        >
+                            <div className="flex flex-col gap-4 h-full">
+                                <div
+                                    className="bg-white/10 p-2 rounded-xl
                     w-12 h-12
                     flex items-center justify-center"
-                        >
-                            <PanelTop className="w-6 h-6" />
-                        </div>
-                        <p>Website Management & SEO</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I collaborate with SEO and marketing teams
-                            to build and manage high-performing WordPress
-                            websites.
-                        </p>
-                        <ProjCategoryButton className="mt-auto">
-                            <Link
-                                href="/projects/website-management"
-                                onClick={handleNavigate(
-                                    "/projects/website-management",
-                                )}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath ===
-                                    "/projects/website-management"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath ===
-                                    "/projects/website-management"
-                                }
-                            >
-                                {loadingPath === "/projects/website-management"
-                                    ? "Loading..."
-                                    : "View Projects"}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/full-stack")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
-                    w-12 h-12
-                    flex items-center justify-center"
-                        >
-                            <Database className="w-6 h-6" />
-                        </div>
-                        <p>Full Stack</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I design and develop full-stack applications
-                            using data-driven decisions.
-                        </p>
-                        <ProjCategoryButton className="mt-auto">
-                            <Link
-                                href="/projects/full-stack"
-                                onClick={handleNavigate("/projects/full-stack")}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/full-stack"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath === "/projects/full-stack"
-                                }
-                            >
-                                {loadingPath === "/projects/full-stack"
-                                    ? "Loading..."
-                                    : "View Projects"}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
-                <SpotlightCard
-                    className="flex-1 text-white"
-                    onClick={handleNavigate("/projects/web-development")}
-                >
-                    <div className="flex flex-col gap-4 h-full">
-                        <div
-                            className="bg-white/10 p-2 rounded-xl
-                    w-12 h-12
-                    flex items-center justify-center"
-                        >
-                            <CodeXml className="w-6 h-6" />
-                        </div>
-                        <p>Web Application</p>
-                        <p className="text-sm text-neutral-200 flex-1">
-                            See how I design and develop web applications using
-                            data-driven decisions.
-                        </p>
-                        <ProjCategoryButton className="mt-auto">
-                            <Link
-                                href="/projects/web-development"
-                                onClick={handleNavigate(
-                                    "/projects/web-development",
-                                )}
-                                className={`inline-flex items-center gap-2 ${
-                                    loadingPath === "/projects/web-development"
-                                        ? "pointer-events-none opacity-60"
-                                        : ""
-                                }`}
-                                aria-disabled={
-                                    loadingPath === "/projects/web-development"
-                                }
-                            >
-                                {loadingPath === "/projects/web-development"
-                                    ? "Loading..."
-                                    : "View Projects"}
-                            </Link>
-                        </ProjCategoryButton>
-                    </div>
-                </SpotlightCard>
+                                >
+                                    <Icon className="w-6 h-6" />
+                                </div>
+                                <p>{cat.title}</p>
+                                <p className="text-sm text-neutral-200 flex-1">
+                                    {cat.description}
+                                </p>
+                            </div>
+                        </SpotlightCard>
+                    );
+                })}
             </div>
+
+            {openCategory && (
+                <CategoryModal category={openCategory} onClose={handleClose} />
+            )}
         </section>
     );
 }

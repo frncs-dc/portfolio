@@ -9,8 +9,11 @@ import {
     NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronDownIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+
+const LOGO_SRC = "/favicon_io/android-chrome-512x512.png";
 
 const navItems = [
     {
@@ -24,24 +27,6 @@ const navItems = [
     {
         label: "Projects",
         href: "/projects",
-        children: [
-            {
-                label: "UI/UX Research",
-                href: "/projects/uiux-research",
-            },
-            {
-                label: "UI/UX Design",
-                href: "/projects/uiux-design",
-            },
-            {
-                label: "Web Development",
-                href: "/projects/web-development",
-            },
-            {
-                label: "UI/UX Prototyping & AI-Assisted Development",
-                href: "/projects/prototyping-with-ai",
-            },
-        ],
     },
     {
         label: "Contact",
@@ -54,11 +39,12 @@ export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileExpandedHref, setMobileExpandedHref] = useState(null);
 
-    const headerClassName = useMemo(() => {
-        return `transition-colors duration-200 ${
+    // Solid white at top; frosted translucent bar once scrolled.
+    const headerBarClassName = useMemo(() => {
+        return `transition-[background-color,box-shadow,border-color] duration-200 ${
             isScrolled
-                ? "bg-background/70 backdrop-blur-sm border-b border-border"
-                : "bg-transparent"
+                ? "bg-background/70 backdrop-blur-md border-b border-border shadow-sm"
+                : "bg-white border-b border-transparent shadow-none"
         }`;
     }, [isScrolled]);
 
@@ -108,53 +94,85 @@ export default function Navigation() {
             <div className="hidden md:block">
                 <NavigationMenu
                     viewport={false}
-                    className={`flex fixed top-0 left-0 right-0 z-50 px-12 w-screen max-w-none ${headerClassName}`}
+                    className={`flex fixed top-0 left-0 right-0 z-50 w-screen max-w-none items-center justify-between gap-8 px-12 py-3 ${headerBarClassName}`}
                 >
-                    <NavigationMenuList>
-                        {navItems.map((item) => (
-                            <NavigationMenuItem key={item.href}>
-                                {item.children ? (
-                                    <>
-                                        <NavigationMenuTrigger>
-                                            <Link href={item.href}>{item.label}</Link>
-                                        </NavigationMenuTrigger>
-                                        <NavigationMenuContent>
-                                            {item.children.map((child) => (
-                                                <NavigationMenuLink
-                                                    asChild
-                                                    key={child.href}
-                                                >
-                                                    <Link
-                                                        href={child.href}
-                                                        className="font-medium"
+                    <Link
+                        href="/"
+                        className="flex shrink-0 items-center"
+                        aria-label="Home"
+                    >
+                        <Image
+                            src={LOGO_SRC}
+                            alt=""
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 object-contain"
+                            priority
+                        />
+                    </Link>
+                    <NavigationMenuList className="flex flex-1 list-none justify-end gap-1 md:flex-row md:items-center">
+                        {navItems
+                            .filter((item) => item.href !== "/")
+                            .map((item) => (
+                                <NavigationMenuItem key={item.href}>
+                                    {item.children ? (
+                                        <>
+                                            <NavigationMenuTrigger>
+                                                <Link href={item.href}>
+                                                    {item.label}
+                                                </Link>
+                                            </NavigationMenuTrigger>
+                                            <NavigationMenuContent>
+                                                {item.children.map((child) => (
+                                                    <NavigationMenuLink
+                                                        asChild
+                                                        key={child.href}
                                                     >
-                                                        {child.label}
-                                                    </Link>
-                                                </NavigationMenuLink>
-                                            ))}
-                                        </NavigationMenuContent>
-                                    </>
-                                ) : (
-                                    <NavigationMenuLink asChild>
-                                        <Link href={item.href} className="font-medium">
-                                            {item.label}
-                                        </Link>
-                                    </NavigationMenuLink>
-                                )}
-                            </NavigationMenuItem>
-                        ))}
+                                                        <Link
+                                                            href={child.href}
+                                                            className="font-medium"
+                                                        >
+                                                            {child.label}
+                                                        </Link>
+                                                    </NavigationMenuLink>
+                                                ))}
+                                            </NavigationMenuContent>
+                                        </>
+                                    ) : (
+                                        <NavigationMenuLink asChild>
+                                            <Link
+                                                href={item.href}
+                                                className="font-medium"
+                                            >
+                                                {item.label}
+                                            </Link>
+                                        </NavigationMenuLink>
+                                    )}
+                                </NavigationMenuItem>
+                            ))}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
 
             {/* Mobile navigation */}
             <div
-                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${headerClassName}`}
+                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${headerBarClassName}`}
                 style={{ height: 56 }}
             >
                 <div className="flex h-full items-center justify-between px-4">
-                    <Link href="/" className="font-semibold">
-                        Home
+                    <Link
+                        href="/"
+                        className="flex shrink-0 items-center"
+                        aria-label="Home"
+                    >
+                        <Image
+                            src={LOGO_SRC}
+                            alt=""
+                            width={36}
+                            height={36}
+                            className="h-9 w-9 object-contain"
+                            priority
+                        />
                     </Link>
 
                     <button
@@ -197,7 +215,8 @@ export default function Navigation() {
                             <nav className="flex flex-col p-2">
                                 {navItems.map((item) => {
                                     const hasChildren = Boolean(item.children);
-                                    const isExpanded = mobileExpandedHref === item.href;
+                                    const isExpanded =
+                                        mobileExpandedHref === item.href;
 
                                     return (
                                         <div key={item.href} className="w-full">
@@ -206,10 +225,16 @@ export default function Navigation() {
                                                     <button
                                                         type="button"
                                                         className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-left hover:bg-[#ffb6c1]/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ffb6c1]/50"
-                                                        aria-expanded={isExpanded}
+                                                        aria-expanded={
+                                                            isExpanded
+                                                        }
                                                         onClick={() => {
-                                                            setMobileExpandedHref((prev) =>
-                                                                prev === item.href ? null : item.href,
+                                                            setMobileExpandedHref(
+                                                                (prev) =>
+                                                                    prev ===
+                                                                    item.href
+                                                                        ? null
+                                                                        : item.href,
                                                             );
                                                         }}
                                                     >
@@ -218,7 +243,9 @@ export default function Navigation() {
                                                         </span>
                                                         <ChevronDownIcon
                                                             className={`size-4 transition-transform duration-200 ${
-                                                                isExpanded ? "rotate-180" : ""
+                                                                isExpanded
+                                                                    ? "rotate-180"
+                                                                    : ""
                                                             }`}
                                                             aria-hidden="true"
                                                         />
@@ -226,32 +253,67 @@ export default function Navigation() {
 
                                                     {isExpanded && (
                                                         <div className="flex flex-col gap-1 px-2 pb-2">
-                                                            {item.children.map((child) => (
-                                                                <Link
-                                                                    key={child.href}
-                                                                    href={child.href}
-                                                                    className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-[#ffb6c1]/20"
-                                                                    onClick={() => {
-                                                                        setMobileMenuOpen(false);
-                                                                        setMobileExpandedHref(null);
-                                                                    }}
-                                                                >
-                                                                    {child.label}
-                                                                </Link>
-                                                            ))}
+                                                            {item.children.map(
+                                                                (child) => (
+                                                                    <Link
+                                                                        key={
+                                                                            child.href
+                                                                        }
+                                                                        href={
+                                                                            child.href
+                                                                        }
+                                                                        className="block rounded-lg px-3 py-2 text-sm font-medium hover:bg-[#ffb6c1]/20"
+                                                                        onClick={() => {
+                                                                            setMobileMenuOpen(
+                                                                                false,
+                                                                            );
+                                                                            setMobileExpandedHref(
+                                                                                null,
+                                                                            );
+                                                                        }}
+                                                                    >
+                                                                        {
+                                                                            child.label
+                                                                        }
+                                                                    </Link>
+                                                                ),
+                                                            )}
                                                         </div>
                                                     )}
                                                 </>
                                             ) : (
                                                 <Link
                                                     href={item.href}
-                                                    className="block rounded-lg px-3 py-2 font-medium hover:bg-[#ffb6c1]/20"
+                                                    className={`rounded-lg px-3 py-2 font-medium hover:bg-[#ffb6c1]/20 ${
+                                                        item.href === "/"
+                                                            ? "flex items-center"
+                                                            : "block"
+                                                    }`}
+                                                    aria-label={
+                                                        item.href === "/"
+                                                            ? "Home"
+                                                            : undefined
+                                                    }
                                                     onClick={() => {
-                                                        setMobileMenuOpen(false);
-                                                        setMobileExpandedHref(null);
+                                                        setMobileMenuOpen(
+                                                            false,
+                                                        );
+                                                        setMobileExpandedHref(
+                                                            null,
+                                                        );
                                                     }}
                                                 >
-                                                    {item.label}
+                                                    {item.href === "/" ? (
+                                                        <Image
+                                                            src={LOGO_SRC}
+                                                            alt=""
+                                                            width={32}
+                                                            height={32}
+                                                            className="h-8 w-8 object-contain"
+                                                        />
+                                                    ) : (
+                                                        item.label
+                                                    )}
                                                 </Link>
                                             )}
                                         </div>

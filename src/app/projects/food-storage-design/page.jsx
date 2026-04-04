@@ -24,7 +24,7 @@ export default function FoodStorage() {
     ];
 
     return (
-        <section className="relative z-10 my-24 flex flex-col justify-center px-20">
+        <section className="relative z-10 my-24 flex flex-col justify-center lg:px-20 px-10">
             <Breadcrumb>
                 <BreadcrumbList>
                     <BreadcrumbItem>
@@ -50,8 +50,8 @@ export default function FoodStorage() {
                     </BreadcrumbItem>
                 </BreadcrumbList>
             </Breadcrumb>
-            <h1 className="text-4xl font-bold">Food Storage</h1>
-            <p className="text-lg text-gray-500">
+            <h1 className="text-4xl font-bold mt-4">Food Storage</h1>
+            <p className="text-lg text-gray-500 mt-4">
                 It aims to improve effective communication and collaboration
                 among household members in meal planning, organization, and
                 grocery shopping, leading the researchers to focus the design
@@ -84,22 +84,15 @@ export default function FoodStorage() {
 
                 <div className="space-y-6">
                     {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
-                        {/*Item Description*/}
-                        <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
-                            <h2
-                                id="grocery-purchasing-priorities"
-                                className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
-                            >
-                                1. Grocery Purchasing Priorities
-                            </h2>
-                            <p className="text-sm text-gray-500">
-                                This is a description of the item.
-                            </p>
-                        </div>
-
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
                         {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
                             <Image
                                 src="/Projects/Food Storage/Cart Family Cart/Merged View.png"
                                 alt="Item"
@@ -115,26 +108,41 @@ export default function FoodStorage() {
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
-                    </div>
 
-                    {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
                         <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
-                                id="household-organization-storage"
+                                id="grocery-purchasing-priorities"
                                 className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
                             >
-                                2. Household Organization and Storage of Food
-                                Items
+                                1. Grocery Purchasing Priorities
                             </h2>
+                            {/*#TODO: add a link to the factors */}
                             <p className="text-sm text-gray-500">
-                                This is a description of the item.
+                                Participants reported considering several
+                                factors when deciding what food items to buy,
+                                including. These factors shaped purchasing
+                                decisions and could indirectly influence the
+                                likelihood of food waste.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                presenting the needs and wants of each household
+                                member to encourage better collaboration in
+                                managing groceries.
                             </p>
                         </div>
+                    </div>
 
+                    {/* Row Item */}
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
                         {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
                             <Image
                                 src="/Projects/Food Storage/Storage/Fridge Storage Area.png"
                                 alt="Item"
@@ -150,25 +158,41 @@ export default function FoodStorage() {
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
                         </div>
-                    </div>
-
-                    {/* Row Item */}
-                    <div className="flex flex-row items-center gap-4 overflow-hidden border border-gray-300 rounded-md p-4">
                         {/*Item Description*/}
                         <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
                             <h2
-                                id="household-prioritization-consumption"
+                                id="household-organization-storage"
                                 className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
                             >
-                                3. Household Prioritization of Food Consumption
+                                2. Household Organization and Storage of Food
+                                Items
                             </h2>
                             <p className="text-sm text-gray-500">
-                                This is a description of the item.
+                                Most participants organized groceries by
+                                category (e.g., vegetables, frozen goods, canned
+                                items), making them easier to find and keeping
+                                storage spaces orderly. Some also prioritized
+                                using older stock before newer items to reduce
+                                waste, though this required consistent effort
+                                and coordination within the household.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                centralizing current stock to make it easier to
+                                find and use.
                             </p>
                         </div>
+                    </div>
 
+                    {/* Row Item */}
+                    <div
+                        className="flex lg:flex-row-reverse flex-col items-center gap-4 overflow-hidden 
+                    border border-gray-300 rounded-md p-4"
+                    >
                         {/*Item Image*/}
-                        <div className="ml-auto flex flex-none flex-row flex-nowrap justify-end gap-2">
+                        <div
+                            className="flex w-full flex-none flex-row flex-nowrap
+                        items-center justify-center gap-2 lg:ml-auto lg:w-auto lg:justify-end"
+                        >
                             <Image
                                 src="/Projects/Food Storage/Prioritization/Home Page - Minimized.png"
                                 alt="Item"
@@ -183,6 +207,26 @@ export default function FoodStorage() {
                                 height={100}
                                 className="h-auto w-[clamp(120px,18vw,200px)] rounded-lg object-contain"
                             />
+                        </div>
+                        {/*Item Description*/}
+                        <div className="flex min-w-0 flex-1 flex-col gap-2 justify-center">
+                            <h2
+                                id="household-prioritization-consumption"
+                                className="text-3xl font-bold scroll-mt-32 lg:scroll-mt-40"
+                            >
+                                3. Household Prioritization of Food Consumption
+                            </h2>
+                            <p className="text-sm text-gray-500">
+                                Participants also reported forgetting about
+                                stored items leading to food waste.
+                                <br /> <br />
+                                With this in mind, the design was focused on
+                                presenting the items in the home page to make it
+                                easier to remember and use. Moreover, household
+                                members can also communicate with each other and
+                                bring up the items that are about to expire and
+                                other issues related to the groceries.
+                            </p>
                         </div>
                     </div>
                 </div>
