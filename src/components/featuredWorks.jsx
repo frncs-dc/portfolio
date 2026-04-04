@@ -126,6 +126,7 @@ export default function FeaturedWorks({ showHeader = false }) {
                             <Link href="/projects/food-storage-research">
                                 View Research
                             </Link>
+                            <ArrowRightIcon className="w-4 h-4" />
                         </Button>
                     </div>
                 </div>
@@ -169,6 +170,7 @@ export default function FeaturedWorks({ showHeader = false }) {
                     </div>
                     <div className="flex flex-row gap-2 mt-8">
                         <Button className="rounded-2xl w-fit">
+                            <FaGithub />
                             <Link href="https://github.com/frncs-dc/portfolio">
                                 View GitHub Repository
                             </Link>
