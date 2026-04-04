@@ -13,6 +13,8 @@ import Image from "next/image";
 import { ChevronDownIcon } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 
+const LOGO_SRC = "/favicon_io/android-chrome-512x512.png";
+
 const navItems = [
     {
         label: "Home",
@@ -37,17 +39,14 @@ export default function Navigation() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [mobileExpandedHref, setMobileExpandedHref] = useState(null);
 
-    const desktopHeaderClassName = useMemo(() => {
-        return `transition-colors duration-200 ${
+    // Solid white at top; frosted translucent bar once scrolled.
+    const headerBarClassName = useMemo(() => {
+        return `transition-[background-color,box-shadow,border-color] duration-200 ${
             isScrolled
-                ? "bg-background/70 backdrop-blur-sm border-b border-border"
-                : "bg-transparent"
+                ? "bg-background/70 backdrop-blur-md border-b border-border shadow-sm"
+                : "bg-white border-b border-transparent shadow-none"
         }`;
     }, [isScrolled]);
-
-    // Mobile: always keep a solid bar so links/logo stay visible over page content.
-    const mobileHeaderClassName =
-        "bg-background/95 backdrop-blur-md border-b border-border shadow-sm";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -95,53 +94,69 @@ export default function Navigation() {
             <div className="hidden md:block">
                 <NavigationMenu
                     viewport={false}
-                    className={`flex fixed top-0 left-0 right-0 z-50 px-12 w-screen max-w-none ${desktopHeaderClassName}`}
+                    className={`flex fixed top-0 left-0 right-0 z-50 w-screen max-w-none items-center justify-between gap-8 px-12 py-3 ${headerBarClassName}`}
                 >
-                    <NavigationMenuList>
-                        {navItems.map((item) => (
-                            <NavigationMenuItem key={item.href}>
-                                {item.children ? (
-                                    <>
-                                        <NavigationMenuTrigger>
-                                            <Link href={item.href}>
+                    <Link
+                        href="/"
+                        className="flex shrink-0 items-center"
+                        aria-label="Home"
+                    >
+                        <Image
+                            src={LOGO_SRC}
+                            alt=""
+                            width={32}
+                            height={32}
+                            className="h-8 w-8 object-contain"
+                            priority
+                        />
+                    </Link>
+                    <NavigationMenuList className="flex flex-1 list-none justify-end gap-1 md:flex-row md:items-center">
+                        {navItems
+                            .filter((item) => item.href !== "/")
+                            .map((item) => (
+                                <NavigationMenuItem key={item.href}>
+                                    {item.children ? (
+                                        <>
+                                            <NavigationMenuTrigger>
+                                                <Link href={item.href}>
+                                                    {item.label}
+                                                </Link>
+                                            </NavigationMenuTrigger>
+                                            <NavigationMenuContent>
+                                                {item.children.map((child) => (
+                                                    <NavigationMenuLink
+                                                        asChild
+                                                        key={child.href}
+                                                    >
+                                                        <Link
+                                                            href={child.href}
+                                                            className="font-medium"
+                                                        >
+                                                            {child.label}
+                                                        </Link>
+                                                    </NavigationMenuLink>
+                                                ))}
+                                            </NavigationMenuContent>
+                                        </>
+                                    ) : (
+                                        <NavigationMenuLink asChild>
+                                            <Link
+                                                href={item.href}
+                                                className="font-medium"
+                                            >
                                                 {item.label}
                                             </Link>
-                                        </NavigationMenuTrigger>
-                                        <NavigationMenuContent>
-                                            {item.children.map((child) => (
-                                                <NavigationMenuLink
-                                                    asChild
-                                                    key={child.href}
-                                                >
-                                                    <Link
-                                                        href={child.href}
-                                                        className="font-medium"
-                                                    >
-                                                        {child.label}
-                                                    </Link>
-                                                </NavigationMenuLink>
-                                            ))}
-                                        </NavigationMenuContent>
-                                    </>
-                                ) : (
-                                    <NavigationMenuLink asChild>
-                                        <Link
-                                            href={item.href}
-                                            className="font-medium"
-                                        >
-                                            {item.label}
-                                        </Link>
-                                    </NavigationMenuLink>
-                                )}
-                            </NavigationMenuItem>
-                        ))}
+                                        </NavigationMenuLink>
+                                    )}
+                                </NavigationMenuItem>
+                            ))}
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
 
             {/* Mobile navigation */}
             <div
-                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${mobileHeaderClassName}`}
+                className={`md:hidden fixed top-0 left-0 right-0 z-50 ${headerBarClassName}`}
                 style={{ height: 56 }}
             >
                 <div className="flex h-full items-center justify-between px-4">
@@ -151,7 +166,7 @@ export default function Navigation() {
                         aria-label="Home"
                     >
                         <Image
-                            src="/favicon_io/android-chrome-512x512.png"
+                            src={LOGO_SRC}
                             alt=""
                             width={36}
                             height={36}
@@ -269,7 +284,16 @@ export default function Navigation() {
                                             ) : (
                                                 <Link
                                                     href={item.href}
-                                                    className="block rounded-lg px-3 py-2 font-medium hover:bg-[#ffb6c1]/20"
+                                                    className={`rounded-lg px-3 py-2 font-medium hover:bg-[#ffb6c1]/20 ${
+                                                        item.href === "/"
+                                                            ? "flex items-center"
+                                                            : "block"
+                                                    }`}
+                                                    aria-label={
+                                                        item.href === "/"
+                                                            ? "Home"
+                                                            : undefined
+                                                    }
                                                     onClick={() => {
                                                         setMobileMenuOpen(
                                                             false,
@@ -279,7 +303,17 @@ export default function Navigation() {
                                                         );
                                                     }}
                                                 >
-                                                    {item.label}
+                                                    {item.href === "/" ? (
+                                                        <Image
+                                                            src={LOGO_SRC}
+                                                            alt=""
+                                                            width={32}
+                                                            height={32}
+                                                            className="h-8 w-8 object-contain"
+                                                        />
+                                                    ) : (
+                                                        item.label
+                                                    )}
                                                 </Link>
                                             )}
                                         </div>
