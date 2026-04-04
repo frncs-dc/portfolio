@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRightIcon } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 export default function FeaturedWorks({ showHeader = false }) {
     const PisoCAKETechnologies = [
         "figma",
@@ -77,10 +78,18 @@ export default function FeaturedWorks({ showHeader = false }) {
                             </Button>
                         ))}
                     </div>
-                    <Button className="rounded-2xl w-fit mt-8">
-                        <Link href="/projects/pisocake">View Project</Link>
-                        <ArrowRightIcon className="w-4 h-4" />
-                    </Button>
+                    <div className="flex flex-row gap-2 mt-8">
+                        <Button className="rounded-2xl w-fit">
+                            <Link href="/projects/pisocake">View Project</Link>
+                            <ArrowRightIcon className="w-4 h-4" />
+                        </Button>
+                        <Button className="rounded-2xl w-fit">
+                            <FaGithub />
+                            <Link href="https://github.com/CarlMatthewVerano/THS-ST-PisoCAKE">
+                                View GitHub Repository
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
             </div>
 
@@ -106,12 +115,19 @@ export default function FeaturedWorks({ showHeader = false }) {
                             </Button>
                         ))}
                     </div>
-                    <Button className="rounded-2xl w-fit mt-8">
-                        <Link href="/projects/uiux-design/food-storage">
-                            View Project
-                        </Link>
-                        <ArrowRightIcon className="w-4 h-4" />
-                    </Button>
+                    <div className="flex flex-row gap-2 mt-8">
+                        <Button className="rounded-2xl w-fit">
+                            <Link href="/projects/food-storage-design">
+                                View Project
+                            </Link>
+                            <ArrowRightIcon className="w-4 h-4" />
+                        </Button>
+                        <Button className="rounded-2xl w-fit">
+                            <Link href="/projects/uiux-research/food-storage-research">
+                                View Research
+                            </Link>
+                        </Button>
+                    </div>
                 </div>
                 <Image
                     src="/Projects/Food Storage/FoodStorage.webp"
@@ -123,7 +139,7 @@ export default function FeaturedWorks({ showHeader = false }) {
                 />
             </div>
 
-            <div className="flex flex-col gap-4 lg:flex-row">
+            <div className="flex flex-col gap-4 lg:flex-row mt-8">
                 <Image
                     src="/Projects/Portfolio/Desktop_Portfolio.webp"
                     alt="This Portfolio"
@@ -150,6 +166,13 @@ export default function FeaturedWorks({ showHeader = false }) {
                                 {technology}
                             </Button>
                         ))}
+                    </div>
+                    <div className="flex flex-row gap-2 mt-8">
+                        <Button className="rounded-2xl w-fit">
+                            <Link href="https://github.com/frncs-dc/portfolio">
+                                View GitHub Repository
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>
