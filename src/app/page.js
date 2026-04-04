@@ -1,12 +1,11 @@
-import Image from "next/image";
 import HeroSection from "@/components/heroSection";
 import ExperienceSection from "@/components/experienceSection";
 import AboutMe from "@/components/aboutme";
-import CTASection from "@/components/ctaSection";
 import ProjectsSection from "@/components/projectsSection";
 import TechStack from "@/components/techStack";
 import ContactMe from "@/components/contactMe";
 import FeaturedWorks from "@/components/featuredWorks";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
     return (
@@ -26,24 +25,30 @@ export default function Home() {
                 <div className="relative z-10 w-3/4 mx-auto">
                     <HeroSection />
                     <FeaturedWorks showHeader />
-                    <p className="text-lg text-neutral-500 mb-4">
-                        Or check out the
-                    </p>
-                    <h1 className="text-4xl font-bold mb-4">
-                        Types of Projects I Work On
-                    </h1>
-                    <ProjectsSection />
-                    <TechStack />
-                    <AboutMe />
+                    <ScrollReveal>
+                        <p className="text-lg text-neutral-500 mb-4">
+                            Or check out the
+                        </p>
+                        <h1 className="text-4xl font-bold mb-4">
+                            Types of Projects I Work On
+                        </h1>
+                        <ProjectsSection />
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <TechStack />
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <AboutMe />
+                    </ScrollReveal>
                 </div>
 
-                {/* <div className="relative z-10 bg-pink-200 flex justify-center my-12 px-4">
-                    <CTASection />
-                </div> */}
-
                 <div className="relative z-10 w-3/4 mx-auto">
-                    <ExperienceSection />
-                    <ContactMe />
+                    <ScrollReveal>
+                        <ExperienceSection />
+                    </ScrollReveal>
+                    <ScrollReveal>
+                        <ContactMe />
+                    </ScrollReveal>
                 </div>
             </div>
         </div>
