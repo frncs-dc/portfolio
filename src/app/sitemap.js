@@ -1,5 +1,5 @@
 export default function sitemap() {
-    const baseUrl = "https://portfolio-frances-delacruz.vercel.app";
+    const baseUrl = "https://byfrances.dev/";
     const lastModified = new Date("2026-03-15T17:12:07+00:00");
 
     return [
@@ -77,4 +77,3 @@ export default function sitemap() {
         },
     ];
 }
-

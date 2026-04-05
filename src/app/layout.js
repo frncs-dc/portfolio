@@ -32,7 +32,7 @@ export const metadata = {
     authors: [
         {
             name: "Frances Dela Cruz",
-            url: "https://portfolio-frances-delacruz.vercel.app/",
+            url: "https://byfrances.dev/",
         },
     ],
     creator: "Frances Dela Cruz",
@@ -40,7 +40,7 @@ export const metadata = {
     openGraph: {
         title: "Frances Dela Cruz | Portfolio",
         description: "Portfolio of Frances Dela Cruz - Developer and Designer",
-        url: "https://portfolio-frances-delacruz.vercel.app/",
+        url: "https://byfrances.dev/",
         siteName: "Frances Dela Cruz | Portfolio",
         images: [
             {
@@ -50,7 +50,7 @@ export const metadata = {
     },
     robots: "index, follow",
     alternates: {
-        canonical: "https://portfolio-frances-delacruz.vercel.app/",
+        canonical: "https://byfrances.dev/",
     },
 };
 

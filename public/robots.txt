@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Specify sitemap location
-Sitemap: https://portfolio-frances-delacruz.vercel.app/sitemap.xml
+Sitemap: https://byfrances.dev/sitemap.xml
